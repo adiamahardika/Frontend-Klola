@@ -13,23 +13,22 @@ class EditProduct extends Component {
     image: "",
     price: "",
     quantity: "",
-    category: "" || "DEFAULT",
+    category: "",
   };
 
-    componentWillReceiveProps({ product }) {
-        this.onSetValue(product);
-    }
+  componentWillReceiveProps({ product }) {
+    this.onSetValue(product);
+  }
 
-    onSetValue = (product) => {
-        this.setState({
-            id: product.id,
-            name: product.name,
-            description: product.description,
-            price: product.price,
-            quantity: product.quantity,
-            category: product.category
-        })
-    }
+  onSetValue = (product) => {
+    this.setState({
+      id: product.id,
+      name: product.name,
+      description: product.description,
+      price: product.price,
+      quantity: product.quantity,
+    });
+  };
 
   onChangeValue = (event) => {
     this.setState({
@@ -124,7 +123,6 @@ class EditProduct extends Component {
                 onChange={this.onChangeValue}
                 value={this.state.category}
                 as="select"
-                required
               >
                 <option value="DEFAULT" disabled>
                   Choose..

@@ -2,7 +2,7 @@ import React, {Component, Fragment} from 'react'
 import { Link } from 'react-router-dom'
 
 import { connect } from "react-redux";
-import { searchProduct, modifyProduct } from "../redux/actions/product";
+import { modifyProduct } from "../redux/actions/product";
 import { withRouter } from "react-router"
 class Navbar extends Component {
     state = {
@@ -20,13 +20,13 @@ class Navbar extends Component {
     render(){
         const { onLogout } = this.props
         const Hidden = () => {
-            if (localStorage.getItem('status') == '1') {
+            if (localStorage.getItem('status') === '1') {
                 return (
                     <Fragment>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{margin: 'auto', fontFamily: 'Source Sans Pro, sans-serif', fontWeight:600, fontSize:'20px', padding:'10px', color: 'white' }}>
+                            <div class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{margin: 'auto', fontFamily: 'Source Sans Pro, sans-serif', fontWeight:600, fontSize:'20px', padding:'10px', color: 'white' }}>
                             Administrator
-                            </a>
+                            </div>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <Link class="dropdown-item" to='/adminproduct'>Product</Link>
                             <Link class="dropdown-item" to="/admincategory">Category</Link>

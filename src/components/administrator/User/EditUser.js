@@ -8,7 +8,7 @@ class EditUser extends Component {
     id: "",
     name: "",
     email: "",
-    status: "" || 2,
+    status: "",
   };
 
   componentWillReceiveProps({ user }) {
@@ -19,8 +19,7 @@ class EditUser extends Component {
     this.setState({
       id: user.id,
       name: user.name,
-      email: user.email,
-      status: user.status,
+      email: user.email
     });
   };
 

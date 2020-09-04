@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react';
 import axios from 'axios';
 import login from '../../images/login.png'
 import './login.css'
-import logo from '../../images/logo.png'
 require ('dotenv').config()
 class Login extends Component{
     constructor(props){

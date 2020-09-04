@@ -56,7 +56,7 @@ class User extends Component {
   };
   render() {
     const { user } = this.props;
-    const listUser = user.map((user, index) => (
+    const listUser = user && user.map((user, index) => (
       <UserItem
         key={index}
         user={user}

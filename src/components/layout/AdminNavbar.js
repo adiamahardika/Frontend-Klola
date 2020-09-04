@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 
 import { connect } from "react-redux";
-import { searchProduct, modifyProduct } from "../redux/actions/product";
+import { modifyProduct } from "../redux/actions/product";
 import { withRouter } from "react-router"
 class AdminNavbar extends Component {
     state = {
@@ -37,9 +37,9 @@ class AdminNavbar extends Component {
                       <div className='collapse navbar-collapse' id='navbarSupportedContent'>
                       <ul class="navbar-nav mr-auto">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{fontFamily: 'Source Sans Pro, sans-serif', fontWeight:600, fontSize:'20px', padding:'10px', color: 'white' }}>
+                            <div class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{fontFamily: 'Source Sans Pro, sans-serif', fontWeight:600, fontSize:'20px', padding:'10px', color: 'white' }}>
                             Administrator
-                            </a>
+                            </div>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown" style={{fontFamily: 'Source Sans Pro, sans-serif', fontWeight:600}}>
                             <Link class="dropdown-item" to='/adminproduct'>Product</Link>
                             <Link class="dropdown-item" to="/admincategory">Category</Link>

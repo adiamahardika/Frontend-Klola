@@ -22,9 +22,9 @@ const AdminCardProduct = ({product, onSelectProductDelete, onSelectProductEdit, 
     <td className='itemProduct'>{product.name}</td>
     <td className='descProduct'>{product.description}</td>
     <td className='itemProduct'><img src={product.image}alt={product.image} style={{ maxHeight: 50 }}/></td>
-    <td className='itemProduct'>{parseToRupiah(product.price)}</td>
-    <td className='itemProduct'>{product.quantity}</td>
     <td className='itemProduct'>{product.category}</td>
+    <td className='itemProduct'>{product.quantity}</td>
+    <td className='itemProduct'>{parseToRupiah(product.price)}</td>
     <td className='descProduct'>{product.date_created}</td>
     <td className='descProduct'>{product.date_updated}</td>
     </tr>
