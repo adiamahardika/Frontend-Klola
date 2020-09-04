@@ -1,12 +1,12 @@
 import React from 'react'
-
-const CardProduct = ({ product, addCart, parseToRupiah }) => {
+import { parseToRupiah } from "../helpers/index"
+const CardProduct = ({ product, addCart }) => {
   const selectProduct = (event) => {
       event.preventDefault()
       addCart(product)
     }
   return (
-      <div className='col-md-4' key={product.id} style={{ marginBottom: "10px", paddingTop: "10px", paddingBottom: "10px" }}>
+      <div key={product.id}>
         <div className='card' style={{borderRadius:'20px'}}>
           <div className='view'>
             <img src={product.image} width={400} height={150} className='card-img-top' alt='...' style={{borderRadius:'20px'}}/>

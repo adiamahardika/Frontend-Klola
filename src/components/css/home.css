@@ -1,0 +1,14 @@
+.home{
+    display: grid;
+    grid-area: content;
+    grid-auto-flow: column;
+    column-gap: 16px;
+    padding: 16px;
+    grid-template-columns: repeat(2, max-content);
+}
+.show-product{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 16px;
+    column-gap: 16px;
+}

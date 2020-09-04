@@ -4,6 +4,7 @@ import { Row, Col } from 'react-bootstrap'
 import {addCart, addQuantity, reduceQuantity, deleteCart, cancelCart} from '../redux/actions/cart'
 import Checkout from '../order/Checkout'
 import empty from '../../images/empty-cart.png'
+import { parseToRupiah } from "../helpers/index"
 class Cart extends Component {
     state ={
         show: false,
@@ -46,7 +47,7 @@ class Cart extends Component {
     }
     
     render(){
-        const {carts, total, parseToRupiah} = this.props
+        const {carts, total} = this.props
         return(
             <Fragment>
                 {carts.length !== 0 ?

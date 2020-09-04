@@ -8,8 +8,8 @@ import AddProduct from '../administrator/Product/AddProduct'
 import AddCategory from '../administrator/Category/AddCategory'
 import AddUser from '../administrator/User/AddUser'
 import { withRouter } from "react-router"
-
-class Sidenav extends Component {
+import "../css/sidenav.css"
+class Sidebar extends Component {
 state = {
     sortBy: '',
     orderBy:'',
@@ -108,46 +108,49 @@ state = {
       }
     }
   return (
-      <SideNav style={{ backgroundColor: 'transparent', marginTop:'20px' }}>
-        <SideNav.Nav>
-          <NavItem>
-            <NavIcon style={{ backgroundColor: 'white' }}>
-              <div className='col' >
-                <div className='p-3'>
-                <div class='btn-group dropright' style={{display: 'block'}}>
-                  <button type='button' className='fa fa-fw fa-filter' style={{ fontSize: '1.75em', color: '#e91e63', display: 'block', border: 'none', backgroundColor: 'transparent', marginTop: '80px', padding: '10px'}} data-target='#sort' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' />
-                  <div class='dropdown-menu'>
-                  <button onClick={() => this.filterProduct('')} class='dropdown-item'>All</button>
-                  {categories.map((category,index) => 
-                  <button onClick={() => this.filterProduct(category.id)} class='dropdown-item' key={index} value={category.id}>{category.name}</button>
-                  )}
-                  </div>
-                </div>
-                <div class='btn-group dropright' style={{display: 'block', marginTop:"-70px", marginLeft:"5px"}}>
-                  <button type='button' className='fa fa-fw fa-sort' style={{ fontSize: '1.75em', color: '#e91e63', display: 'block', border: 'none', backgroundColor: 'transparent', marginTop: '80px', padding: '10px' }} data-target='#sort' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' />
-                  <div class='dropdown-menu'>
-                    <button onClick={this.sortProduct} class='dropdown-item' value={'price'} >Price</button>
-                  </div>
-                </div>
-                <div class='btn-group dropright' style={{display: 'block', marginTop:"-70px", marginLeft:"5px"}}>
-                  <button type='button' className='fa fa-fw fa-sort' style={{ fontSize: '1.75em', color: '#e91e63', display: 'block', border: 'none', backgroundColor: 'transparent', marginTop: '80px', padding: '10px' }} data-target='#sort' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' />
-                  <div class='dropdown-menu'>
-                    <button onClick={this.orderProduct} class='dropdown-item' value={'ASC'} >Ascending</button>
-                    <button onClick={this.orderProduct} class='dropdown-item' value={'DESC'} >Descending</button>
-                  </div>
-                </div>
+    <div className="sidebar">
+      Ini Sidebar
+    </div>
+      // <SideNav style={{ backgroundColor: 'transparent', marginTop:'20px' }}>
+      //   <SideNav.Nav>
+      //     <NavItem>
+      //       <NavIcon style={{ backgroundColor: 'white' }}>
+      //         <div className='col' >
+      //           <div className='p-3'>
+      //           <div class='btn-group dropright' style={{display: 'block'}}>
+      //             <button type='button' className='fa fa-fw fa-filter' style={{ fontSize: '1.75em', color: '#e91e63', display: 'block', border: 'none', backgroundColor: 'transparent', marginTop: '80px', padding: '10px'}} data-target='#sort' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' />
+      //             <div class='dropdown-menu'>
+      //             <button onClick={() => this.filterProduct('')} class='dropdown-item'>All</button>
+      //             {categories.map((category,index) => 
+      //             <button onClick={() => this.filterProduct(category.id)} class='dropdown-item' key={index} value={category.id}>{category.name}</button>
+      //             )}
+      //             </div>
+      //           </div>
+      //           <div class='btn-group dropright' style={{display: 'block', marginTop:"-70px", marginLeft:"5px"}}>
+      //             <button type='button' className='fa fa-fw fa-sort' style={{ fontSize: '1.75em', color: '#e91e63', display: 'block', border: 'none', backgroundColor: 'transparent', marginTop: '80px', padding: '10px' }} data-target='#sort' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' />
+      //             <div class='dropdown-menu'>
+      //               <button onClick={this.sortProduct} class='dropdown-item' value={'price'} >Price</button>
+      //             </div>
+      //           </div>
+      //           <div class='btn-group dropright' style={{display: 'block', marginTop:"-70px", marginLeft:"5px"}}>
+      //             <button type='button' className='fa fa-fw fa-sort' style={{ fontSize: '1.75em', color: '#e91e63', display: 'block', border: 'none', backgroundColor: 'transparent', marginTop: '80px', padding: '10px' }} data-target='#sort' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' />
+      //             <div class='dropdown-menu'>
+      //               <button onClick={this.orderProduct} class='dropdown-item' value={'ASC'} >Ascending</button>
+      //               <button onClick={this.orderProduct} class='dropdown-item' value={'DESC'} >Descending</button>
+      //             </div>
+      //           </div>
 
-                {/* Add Product */}
-                <Hidden/>
-                <AddProduct show={this.state.showAddProduct} onHide={this.onCloseAddProduct}/>
-                <AddCategory show={this.state.showAddCategory} onHide={this.onCloseAddCategory}/>
-                <AddUser show={this.state.showAddUser} onHide={this.onCloseAddUser}/>
-                </div>
-              </div>
-            </NavIcon>
-          </NavItem>
-        </SideNav.Nav>
-      </SideNav>
+      //           {/* Add Product */}
+      //           <Hidden/>
+      //           <AddProduct show={this.state.showAddProduct} onHide={this.onCloseAddProduct}/>
+      //           <AddCategory show={this.state.showAddCategory} onHide={this.onCloseAddCategory}/>
+      //           <AddUser show={this.state.showAddUser} onHide={this.onCloseAddUser}/>
+      //           </div>
+      //         </div>
+      //       </NavIcon>
+      //     </NavItem>
+      //   </SideNav.Nav>
+      // </SideNav>
     )
   }
 }
@@ -156,5 +159,5 @@ const mapStateToProps = (state) => {
     categories: state.category.categories
   }
 }
-export default withRouter(connect(mapStateToProps)(Sidenav))
+export default withRouter(connect(mapStateToProps)(Sidebar))
 

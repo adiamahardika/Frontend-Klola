@@ -1,9 +1,9 @@
 import React, {Component, Fragment} from 'react'
 import { Link } from 'react-router-dom'
-
 import { connect } from "react-redux";
 import { modifyProduct } from "../redux/actions/product";
 import { withRouter } from "react-router"
+import "../css/navbar.css"
 class Navbar extends Component {
     state = {
         sortBy: '',
