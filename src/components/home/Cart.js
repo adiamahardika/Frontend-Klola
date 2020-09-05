@@ -11,7 +11,8 @@ import Checkout from "../order/Checkout";
 import empty from "../../images/empty-cart.png";
 import { parseToRupiah } from "../helpers/index";
 import "../css/home/cart.css";
-import "../css/components/button.css"
+import "../css/components/button.css";
+import { checkout } from "../redux/actions/order";
 class Cart extends Component {
   state = {
     show: false,
@@ -52,64 +53,63 @@ class Cart extends Component {
 
   render() {
     const { carts, total } = this.props;
+    const checkout = () => {
+      if (total > 0) {
+        return (
+          <button
+            type="button"
+            className="button-primary"
+            onClick={this.handleShow}
+          >
+            Checkout
+          </button>
+        );
+      } else {
+        return (
+          <button type="button" className="btn button-primary" disabled>
+            Checkout
+          </button>
+        );
+      }
+    };
     return (
       <>
+        <div className="cart-title">Cart</div>
         {carts.length !== 0 ? (
-          <div className="cart-wrapper">
-            <div className="product-list-wrapper">
-              {carts.map((cart) => (
-                <div className="product-list">
-                  <img src={cart.image} alt="" className="cart-image" />
-                  <div className="cart-name">{cart.name}</div>
-                  <div className="cart-price">{parseToRupiah(cart.price * cart.qty)}</div>
-                  <div className="cart-quantity">
-                    <button
-                      type="button"
-                      className="button-icon"
-                      onClick={() => this.reduceQuantity(cart.id)}
-                    >
-                      <ion-icon name="remove" />
-                    </button>
-                    <div className="cart-form">{cart.qty}</div>
-                    <button
-                      type="button"
-                      className="button-icon"
-                      onClick={() => this.addQuantity(cart)}
-                    >
-                      <ion-icon name="add" />
-                    </button>
-                    <button
-                      type="button"
-                      className="button-icon"
-                      onClick={() => this.deleteCart(cart)}
-                    >
-                      <ion-icon name="trash" />
-                    </button>
-                  </div>
+          <div className="product-list-wrapper">
+            {carts.map((cart) => (
+              <div className="product-list">
+                <img src={cart.image} alt="" className="cart-image" />
+                <div className="cart-name">{cart.name}</div>
+                <div className="cart-price">
+                  {parseToRupiah(cart.price * cart.qty)}
                 </div>
-              ))}
-            </div>
-            <div className="total">
-            <div>Total:</div>
-            <div>{parseToRupiah(total)}</div>
-            </div>
-            <div className="button-cart-wrapper">
-            <button
-              type="button"
-              className="button-outline-primary"
-              onClick={this.cancelCart}
-            >
-              Cancel
-            </button>
-            <button
-              type="button"
-              className="button-primary"
-              onClick={this.handleShow}
-            >
-              Checkout
-            </button>
-            </div>
-            <Checkout show={this.state.show} onHide={this.handleClose} />
+                <div className="cart-quantity">
+                  <button
+                    type="button"
+                    className="button-icon"
+                    onClick={() => this.reduceQuantity(cart.id)}
+                  >
+                    <ion-icon name="remove" />
+                  </button>
+                  <div className="cart-form">{cart.qty}</div>
+                  <button
+                    type="button"
+                    className="button-icon"
+                    onClick={() => this.addQuantity(cart)}
+                  >
+                    <ion-icon name="add" />
+                  </button>
+                  <button
+                    type="button"
+                    className="button-icon"
+                    onClick={() => this.deleteCart(cart)}
+                  >
+                    <ion-icon name="trash" />
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         ) : (
           <div className="cart-image-empty-wrapper">
@@ -117,6 +117,23 @@ class Cart extends Component {
             <div className="empty">Your Cart is Empty!</div>
           </div>
         )}
+        <div>
+          <div className="total">
+            <div>Total:</div>
+            <div>{parseToRupiah(total)}</div>
+          </div>
+          <div className="button-cart-wrapper">
+            <button
+              type="button"
+              className="button-outline-primary"
+              onClick={this.cancelCart}
+            >
+              Cancel
+            </button>
+            {checkout()}
+          </div>
+          <Checkout show={this.state.show} onHide={this.handleClose} />
+        </div>
       </>
     );
   }

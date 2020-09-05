@@ -1,3 +1,16 @@
+.cart {
+  display: grid;
+  height: 85vh;
+  grid-template-rows: 32px 1fr max-content;
+  row-gap: 16px;
+}
+
+.cart-title {
+  display: flex;
+  justify-self: center;
+  font-weight: 600;
+  font-size: 24px;
+}
 /* Wrapper */
 .cart-wrapper {
   display: grid;
@@ -7,6 +20,7 @@
   display: grid;
   row-gap: 8px;
   width: 100%;
+  align-self: start;
 }
 .cart-image-empty-wrapper {
   display: grid;
@@ -16,6 +30,7 @@
 /* Image */
 .image-empty {
   max-width: 275px;
+  align-self: flex-end;
 }
 .cart-image {
   grid-area: image;
