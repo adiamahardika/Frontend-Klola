@@ -1,4 +1,50 @@
 .sidebar {
-  grid-area: sidebar;  
-  background-color: blue;
+  grid-area: sidebar;
+  background-color: #4285f4;
+  padding: 8px;
+}
+/*Sidebar Menu*/
+.sidebar-menu {
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  padding: 4px;
+  margin-bottom: 8px;
+}
+.sidebar-menu:hover {
+  color: white;
+  background-color: hsl(217, 89%, 50%);
+  border-radius: 4px;
+}
+/* Management */
+.sidebar-menu {
+  border: none;
+}
+.sidebar ul {
+  list-style: none;
+  text-decoration: none;
+  display: grid;
+  row-gap: 2px;
+  justify-content: stretch;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: white;
+}
+.management-list {
+  border: none;
+  padding: 4px;
+  font-size: 14px;
+}
+.management-list:hover {
+  background-color: #4285f4;
+  border-radius: 4px;
+}
+.management-list a {
+  color: #4285f4;
+  display: block;
+  font-weight: 500;
+}
+.management-list a:hover {
+  text-decoration: none;
+  color: white;
 }
