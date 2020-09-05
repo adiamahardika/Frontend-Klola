@@ -4,46 +4,80 @@ import CardProduct from "./CardProduct";
 import Cart from "./Cart";
 import { connect } from "react-redux";
 import { getAllProduct, modifyProduct } from "../redux/actions/product";
+import { getAllCategory } from "../redux/actions/category";
 import { addCart } from "../redux/actions/cart";
 import { withRouter } from "react-router";
 import "../css/home/home.css";
+import "../css/components/button.css";
+import "../css/components/form.css";
 class Home extends Component {
   state = {
     product: [],
-    category: "",
     selectProduct: null,
+  };
+  data = {
+    category: "",
+    sortBy: "",
+    orderBy: "",
+    name: "",
+    page: "",
   };
   actSelectProduct = (products) => {
     this.setState({
       selectProduct: products,
     });
   };
-
-  getAllProduct() {
-    this.props.dispatch(getAllProduct());
-  }
-
   componentDidMount() {
-    this.getAllProduct();
+    this.props.dispatch(getAllProduct());
+    this.props.dispatch(getAllCategory());
   }
   addCart = (data) => {
     this.props.dispatch(addCart(data));
   };
-
-  paginationProduct = (event) => {
-    this.props.history.push(
-      `/adminproduct?sortBy=${this.state.sortBy}&orderBy=${this.state.orderBy}&name=${this.state.name}&category=${this.props.category}&page=${event.target.id}`
-    );
-
-    this.props.dispatch(
-      modifyProduct(
-        this.state.sortBy,
-        this.state.orderBy,
-        this.state.name,
-        this.state.category,
-        event.target.id
-      )
-    );
+  searchProduct = (event) => {
+    const name = event.target.value;
+    this.data.name = name;
+    this.propsHistoryPush();
+  };
+  filterProduct = (event) => {
+    const category = event.target.value;
+    this.data.category = category;
+    this.propsHistoryPush();
+  };
+  sortProduct = (event) => {
+    const sortBy = event.target.value;
+    this.data.sortBy = sortBy;
+    this.propsHistoryPush();
+  };
+  orderProduct = (event) => {
+    const orderBy = event.target.value;
+    this.data.orderBy = orderBy;
+    this.propsHistoryPush();
+  };
+  propsHistoryPush = () => {
+    const data = this.data;
+    let result = [];
+    Object.keys(data).map((key) => {
+      if (data[key] !== "") {
+        return result.push(key + "=" + data[key]);
+      } else {
+        return "";
+      }
+    });
+    if (result.length !== 0) {
+      this.props.history.push(
+        `/?${result.map((value) => {
+          if (result.indexOf(value) === result.length - 1) {
+            return value;
+          } else {
+            return value + "&";
+          }
+        })}`
+      );
+    } else {
+      this.props.history.push(`/`);
+    }
+    this.props.dispatch(modifyProduct(data));
   };
   // componentDidMount(){
   //     if(!localStorage.getItem('isAuth')){
@@ -51,7 +85,7 @@ class Home extends Component {
   //     }
   // }
   render() {
-    const { products } = this.props;
+    const { products, categories } = this.props;
     const showProduct =
       products &&
       products.map((item, index) => {
@@ -67,7 +101,95 @@ class Home extends Component {
     return (
       <Layout>
         <div className="home">
-          <div className="show-product">{showProduct}</div>
+          <div className="product-wrapper">
+            <div className="find-product-wrapper">
+              <div>
+                <button
+                  type="button"
+                  data-target="#sort"
+                  data-toggle="dropdown"
+                  className="button-icon"
+                >
+                  <ion-icon name="funnel" />
+                </button>
+                <div class="dropdown-menu">
+                  <button
+                    onClick={this.filterProduct}
+                    value=""
+                    class="dropdown-item"
+                  >
+                    All
+                  </button>
+                  {categories.map((category, index) => (
+                    <button
+                      onClick={this.filterProduct}
+                      class="dropdown-item"
+                      key={index}
+                      value={category.id}
+                    >
+                      {category.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <button
+                  type="button"
+                  className="button-icon"
+                  data-target="#sort"
+                  data-toggle="dropdown"
+                >
+                  <ion-icon name="filter" />
+                </button>
+                <div className="dropdown-menu">
+                  <button
+                    onClick={this.sortProduct}
+                    className="dropdown-item"
+                    value=""
+                  >
+                    None
+                  </button>
+                  <button
+                    onClick={this.sortProduct}
+                    className="dropdown-item"
+                    value="name"
+                  >
+                    Name
+                  </button>
+                  <button
+                    onClick={this.sortProduct}
+                    className="dropdown-item"
+                    value="price"
+                  >
+                    Price
+                  </button>
+                  <button
+                    onClick={this.sortProduct}
+                    className="dropdown-item"
+                    value="quantity"
+                  >
+                    Stock
+                  </button>
+                </div>
+              </div>
+                <select
+                  className="custom-select"
+                  onChange={this.orderProduct}
+                  defaultValue={""}
+                >
+                  <option value="">ASC</option>
+                  <option value="DESC">DSC</option>
+                </select>
+              <input
+                className="form-control search"
+                type="text"
+                placeholder="Search Product"
+                aria-label="Search"
+                onChange={this.searchProduct}
+              />
+            </div>
+            <div className="show-product">{showProduct}</div>
+          </div>
           <div className="cart">
             <Cart />
           </div>
@@ -80,6 +202,7 @@ const mapStateToProps = (state) => {
   return {
     products: state.products.products,
     pagination: state.products.pagination,
+    categories: state.category.categories,
   };
 };
 export default withRouter(connect(mapStateToProps)(Home));

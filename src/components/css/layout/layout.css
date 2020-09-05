@@ -3,5 +3,7 @@
   grid-template-areas:
     "navbar navbar"
     "sidebar content";
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: max-content 1fr;
+  grid-template-rows: max-content 1fr;
+  min-height: 100vh;
 }

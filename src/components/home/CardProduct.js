@@ -16,7 +16,7 @@ const CardProduct = ({ product, addCart }) => {
       <img src={product.image} className="product-image" alt="..." />
       <div className="card-body">
         <div className="product-category">
-          <i className="fas fa-utensils" />
+          <ion-icon name="fast-food" />
           {product.category}
         </div>
         <div className="product-name">{product.name}</div>

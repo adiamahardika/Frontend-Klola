@@ -65,25 +65,25 @@ class Cart extends Component {
                   <div className="cart-quantity">
                     <button
                       type="button"
-                      className="cart-button"
+                      className="button-icon"
                       onClick={() => this.reduceQuantity(cart.id)}
                     >
-                      <p className="fa fa-fw fa-minus" />
+                      <ion-icon name="remove" />
                     </button>
                     <div className="cart-form">{cart.qty}</div>
                     <button
                       type="button"
-                      className="cart-button"
+                      className="button-icon"
                       onClick={() => this.addQuantity(cart)}
                     >
-                      <p className="fa fa-fw fa-plus" />
+                      <ion-icon name="add" />
                     </button>
                     <button
                       type="button"
-                      className="cart-button"
+                      className="button-icon"
                       onClick={() => this.deleteCart(cart)}
                     >
-                      <p className="fa fa-fw fa-trash" />
+                      <ion-icon name="trash" />
                     </button>
                   </div>
                 </div>
@@ -114,7 +114,7 @@ class Cart extends Component {
         ) : (
           <div className="cart-image-empty-wrapper">
             <img src={empty} className="image-empty" alt="empty-cart" />
-            <div className="empty">Your Cart is Empty</div>
+            <div className="empty">Your Cart is Empty!</div>
           </div>
         )}
       </>

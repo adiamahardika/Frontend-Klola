@@ -16,9 +16,14 @@ export const getAllProduct = () => {
     }),
   };
 };
-export const modifyProduct = (sortBy, orderBy, name, category, page) => {
+export const modifyProduct = (data) => {
   const authorization = localStorage.getItem("token");
   const userId = localStorage.getItem("user-id");
+  const sortBy = data.sortBy || "name"
+  const orderBy = data.orderBy || "ASC"
+  const name = data.name || ""
+  const category = data.category || ""
+  const page = data.page || 1
   return {
     type: "MODIFY_PRODUCT",
     payload: axios({

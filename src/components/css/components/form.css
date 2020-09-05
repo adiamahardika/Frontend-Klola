@@ -1,7 +1,21 @@
 .search {
   border-radius: 25px;
+  max-height: 32px;
+  box-shadow: 1px 2px 8px 0 rgba(58, 59, 69, 0.15);
+  border: none;
 }
-.search:focus{
-    box-shadow: none;
-    border-color: #dedede;
+.search:focus {
+  box-shadow: 1px 2px 8px 0 rgba(58, 59, 69, 0.15);
+}
+.custom-select {
+  font-size: 14px;
+  font-weight: 500;
+  max-height: 32px;
+  border-radius: 25px;
+  border: none;
+  box-shadow: 1px 2px 8px 0 rgba(58, 59, 69, 0.15);
+  padding: 4px 20px 4px 4px;
+}
+.custom-select:focus {
+  box-shadow: 1px 2px 8px 0 rgba(58, 59, 69, 0.15);
 }

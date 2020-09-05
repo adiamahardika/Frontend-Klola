@@ -4,7 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import { chartOrder } from "../redux/actions/order";
-import { Line } from "react-chartjs-2";
+// import { Line } from "react-chartjs-2";
 import moment from 'moment'
 import Navbar from "../layout/Navbar";
 
@@ -105,7 +105,7 @@ class History extends Component {
                   </div>
                 </div>
                 <div className="col-md-10" style={{marginTop:'20px'}}>
-                  <Line data={data} />
+                  {/* <Line data={data} /> */}
                 </div>
               </div>
             </div>
