@@ -112,9 +112,9 @@ class Cart extends Component {
             <Checkout show={this.state.show} onHide={this.handleClose} />
           </div>
         ) : (
-          <div>
-            <img src={empty} style={{ maxWidth: 250 }} alt="empty-cart" />
-            <h4>Your Cart is Empty</h4>
+          <div className="cart-image-empty-wrapper">
+            <img src={empty} className="image-empty" alt="empty-cart" />
+            <div className="empty">Your Cart is Empty</div>
           </div>
         )}
       </>
