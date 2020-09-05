@@ -61,7 +61,7 @@ class Login extends Component{
                                 <label>Password</label>
                                 <input type="password" className="form-control" placeholder="Enter password" name="password" onChange={this.onChange} required/>
                             </div>
-                            <button type="submit" className="btn" align='right'style={{borderRadius:25, fontSize:'16px', color:'white', width:'100%', backgroundColor:'#E91E63', fontFamily:'Roboto, sans-serif', fontWeight:500}}>LOGIN</button>
+                            <button type="submit" className="btn" align='right'style={{borderRadius:25, fontSize:'16px', color:'white', width:'100%', backgroundColor:'#E91E63', fontFamily:'Poppins, sans-serif', fontWeight:500}}>LOGIN</button>
                         </form>
                         </div>
                     </div>

@@ -8,7 +8,7 @@ import AddProduct from '../administrator/Product/AddProduct'
 import AddCategory from '../administrator/Category/AddCategory'
 import AddUser from '../administrator/User/AddUser'
 import { withRouter } from "react-router"
-import "../css/sidenav.css"
+import "../css/layout/sidebar.css"
 class Sidebar extends Component {
 state = {
     sortBy: '',

@@ -1,28 +1,37 @@
-import React from 'react'
-import { parseToRupiah } from "../helpers/index"
+import React from "react";
+import { parseToRupiah } from "../helpers/index";
+import "../css/home/card_product.css";
+import "../css/components/button.css";
 const CardProduct = ({ product, addCart }) => {
   const selectProduct = (event) => {
-      event.preventDefault()
-      addCart(product)
-    }
+    event.preventDefault();
+    addCart(product);
+  };
   return (
-      <div key={product.id}>
-        <div className='card' style={{borderRadius:'20px'}}>
-          <div className='view'>
-            <img src={product.image} width={400} height={150} className='card-img-top' alt='...' style={{borderRadius:'20px'}}/>
-            </div>
-          <div className='card-body card-body-cascade'>
-          <h8 className="pink-text"><i className="fas fa-utensils"></i> {product.category}</h8>
-            <h4 className="card-title" style={{color:'#4285f4'}}><strong>{product.name}</strong></h4>
-            <h5 className="pb-2"><strong>{parseToRupiah(product.price)}</strong></h5>
-            <h6 className="pb-2">Stock: {product.quantity}</h6>
-            <div style={{ float: 'right', marginTop: '-15px' }}>
-              <button className='badge badge-pill btn btn-lg btn-primary ' onClick={selectProduct}>ADD</button>
-            </div>
-          </div>
+    <div
+      className="card-product"
+      style={{ borderRadius: "20px" }}
+      key={product.id}
+    >
+      <img src={product.image} className="product-image" alt="..." />
+      <div className="card-body">
+        <div className="product-category">
+          <i className="fas fa-utensils" />
+          {product.category}
         </div>
+        <div className="product-name">{product.name}</div>
+        <div className="product-price">{parseToRupiah(product.price)}</div>
+        <div className="product-stock">Stock: {product.quantity}</div>
+        <button
+          type="button"
+          className="btn button-primary"
+          onClick={selectProduct}
+        >
+          Add
+        </button>
       </div>
-  )
-}
+    </div>
+  );
+};
 
-export default CardProduct
+export default CardProduct;

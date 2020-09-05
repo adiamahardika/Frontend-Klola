@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     background-color: #ffffff;
-    font-family: "Roboto", sans-serif;
+    font-family: "Poppins", sans-serif;
   }
   
   .title-category{
@@ -16,7 +16,7 @@
   .tableCategory{
     margin-top: 75px;
     margin-bottom: 20px;
-    font-family: "Roboto", sans-serif;
+    font-family: "Poppins", sans-serif;
     min-width: 100px;
     text-align: center;
     line-height: 75px;

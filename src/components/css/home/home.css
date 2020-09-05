@@ -4,7 +4,7 @@
     grid-auto-flow: column;
     column-gap: 16px;
     padding: 16px;
-    grid-template-columns: repeat(2, max-content);
+    grid-template-columns: max-content 1fr;
 }
 .show-product{
     display: grid;

@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { getAllProduct, modifyProduct } from "../redux/actions/product";
 import { addCart } from "../redux/actions/cart";
 import { withRouter } from "react-router";
-import "../css/home.css";
+import "../css/home/home.css";
 class Home extends Component {
   state = {
     product: [],
