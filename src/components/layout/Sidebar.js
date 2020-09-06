@@ -23,7 +23,7 @@ class Sidebar extends Component {
               <Link to="/adminproduct">Product</Link>
             </li>
             <li type="button" className="management-list">
-              <Link to="/adminuser">User</Link>
+              <Link to="/admin/user">User</Link>
             </li>
           </ul>
         </div>

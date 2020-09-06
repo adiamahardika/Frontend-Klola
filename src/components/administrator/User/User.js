@@ -1,100 +1,131 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getAllUser } from "../../redux/actions/user";
-import UserItem from "./UserItem";
-import EditUser from "./EditUser";
-import DeleteUser from "./DeleteUser";
-import "./User.css";
-class User extends Component {
+import { text, button } from "../../helpers/class_name.json";
+import Layout from "../../layout/Layout";
+import ListUser from "./list_user";
+import EditUser from "./edit_user";
+import DeleteUser from "./delete_user";
+import InsertUser from "./insert_user"
+import "../../css/admin/user.css";
+import "../../css/components/wrapper.css";
+import "../../css/components/button.css";
+import "../../css/components/form.css";
+import "../../css/components/text.css";
+import "../../css/components/table.css";
+class AdminUser extends Component {
   state = {
-    showEdit: false,
-    showDelete: false,
-    selectUserEdit: null,
-    selectUserDelete: null,
+    selectUserEdit: [],
+    selectUserDelete: [],
   };
   componentDidMount() {
-    this.getAllUser();
-  }
-
-  getAllUser() {
     this.props.dispatch(getAllUser());
   }
-
-  onShowEdit = () => {
-    this.setState({
-      showEdit: true,
-    });
-  };
-  onCloseEdit = () => {
-    this.setState({
-      showEdit: false,
-    });
-  };
   onSelectUserEdit = (user) => {
     this.setState({
       selectUserEdit: user,
-      showEdit: true,
-    });
-  };
-  onShowDelete = () => {
-    this.setState({
-      showDelete: true,
-    });
-  };
-  onCloseDelete = () => {
-    this.setState({
-      showDelete: false,
     });
   };
   onSelectUserDelete = (user) => {
     this.setState({
       selectUserDelete: user,
-      showDelete: true,
     });
   };
   render() {
     const { user } = this.props;
-    const listUser = user && user.map((user, index) => (
-      <UserItem
-        key={index}
-        user={user}
-        onSelectUserEdit={this.onSelectUserEdit}
-        onSelectUserDelete={this.onSelectUserDelete}
-      />
-    ));
+    const listUser =
+      user &&
+      user.map((user, index) => (
+        <ListUser
+          key={index}
+          index={index}
+          user={user}
+          onSelectUserEdit={this.onSelectUserEdit}
+          onSelectUserDelete={this.onSelectUserDelete}
+        />
+      ));
     return (
-      <Fragment>
-        <div className="container">
-          <div className="row">
-            <h2 className="title-user">Manage User</h2>
-            <div className="row user">
-              <table className="tableUser table-bordered table-hover table-responsive">
-                <thead className="thead-light">
-                  <tr>
-                    <th scope="col">Manage</th>
-                    <th scope="col">ID</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Date Updated</th>
-                  </tr>
-                </thead>
-                <tbody>{listUser}</tbody>
-              </table>
+      <Layout>
+        <div className="admin-wrapper">
+          <div className={text.h1}>Manage User</div>
+          <div className="find-product-wrapper">
+            <button
+              type="button"
+              className={`${button.primary} ${text.p3}`}
+              data-toggle="modal"
+              data-target="#modalInsertUser"
+            >
+              Insert
+            </button>
+            <div>
+              <button
+                type="button"
+                data-target="#sort"
+                data-toggle="dropdown"
+                className="button-icon"
+              >
+                <ion-icon name="funnel" />
+              </button>
+              <div className="dropdown-menu">
+                <button
+                  onClick={this.filterProduct}
+                  value=""
+                  className={`${text.p1} dropdown-item`}
+                >
+                  All
+                </button>
+              </div>
             </div>
+            <div>
+              <button
+                type="button"
+                className="button-icon"
+                data-target="#sort"
+                data-toggle="dropdown"
+              >
+                <ion-icon name="filter" />
+              </button>
+              <div className="dropdown-menu">
+                <button
+                  onClick={this.sortProduct}
+                  className={`${text.p1} dropdown-item`}
+                  value=""
+                >
+                  None
+                </button>
+              </div>
+            </div>
+            <select
+              className="custom-select"
+              onChange={this.orderProduct}
+              defaultValue={""}
+            >
+              <option value="">ASC</option>
+              <option value="DESC">DSC</option>
+            </select>
+            <input
+              className={`${text.p1} form-control search`}
+              type="text"
+              placeholder="Search Product"
+              aria-label="Search"
+              onChange={this.searchProduct}
+            />
+          </div>
+          <div className="admin-table user">
+            <div className={text.p1}>No</div>
+            <div className={text.p1}>Manage</div>
+            <div className={text.p1}>Name</div>
+            <div className={text.p1}>Email</div>
+            <div className={text.p1}>Status</div>
+            <div className={text.p1}>Date Created</div>
+            <div className={text.p1}>Date Updated</div>
+            {listUser}
           </div>
         </div>
-        <EditUser
-          show={this.state.showEdit}
-          onHide={this.onCloseEdit}
-          user={this.state.selectUserEdit}
-        />
-        <DeleteUser
-          show={this.state.showDelete}
-          onHide={this.onCloseDelete}
-          user={this.state.selectUserDelete}
-        />
-      </Fragment>
+        <InsertUser/>
+        <EditUser user={this.state.selectUserEdit} />
+        <DeleteUser user={this.state.selectUserDelete} />
+      </Layout>
     );
   }
 }
@@ -105,4 +136,4 @@ const userStateToProps = (state) => {
   };
 };
 
-export default connect(userStateToProps)(User);
+export default connect(userStateToProps)(AdminUser);

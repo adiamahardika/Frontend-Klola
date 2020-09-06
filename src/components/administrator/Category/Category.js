@@ -12,6 +12,7 @@ import "../../css/components/button.css";
 import "../../css/components/table.css";
 import "../../css/components/form.css";
 import "../../css/components/text.css";
+import "../../css/components/wrapper.css";
 class Category extends Component {
   state = {
     selectCategoryEdit: null,
@@ -47,9 +48,9 @@ class Category extends Component {
       ));
     return (
       <Layout>
-        <div className="admin-category-wrapper">
+        <div className="admin-wrapper">
           <div className={text.h1}>Category</div>
-          <div className="form-category-wrapper">
+          <div className="form-admin-wrapper">
             <button
               type="button"
               className={`${button.primary} ${text.p3}`}
@@ -68,7 +69,7 @@ class Category extends Component {
           <div className="admin-table category">
             <div className={text.p1}>No</div>
             <div className={text.p1}>Manage</div>
-            <div className={text.p1}>Name Category</div>
+            <div className={text.p1}>Category Name</div>
             <div className={text.p1}>Date Created</div>
             <div className={text.p1}>Date Updated</div>
             {listCategories}

@@ -1,26 +1,26 @@
 import React from "react";
 import { connect } from "react-redux";
-import { deleteCategory } from "../../redux/actions/category";
+import { deleteUser } from "../../redux/actions/user";
 import { text, button } from "../../helpers/class_name.json";
-const DeleteCategory = (props) => {
-  const { category, dispatch } = props;
+const DeleteUser = (props) => {
+  const { user, dispatch } = props;
   const onDeleteHandle = async (event) => {
     event.preventDefault();
-    await dispatch(deleteCategory(category.id));
+    await dispatch(deleteUser(user.id));
   };
 
   return (
     <>
       <div
         className="modal fade"
-        id="modalDeleteCategory"
+        id="modalDeleteUser"
         role="dialog"
         data-backdrop="static"
       >
         <div className="modal-dialog modal-dialog-centered" role="document">
           <div className="modal-content">
             <div className="modal-header">
-              <div className={text.h2}>Delete Category</div>
+              <div className={text.h2}>Delete User</div>
               <button
                 type="button"
                 className="close"
@@ -32,7 +32,7 @@ const DeleteCategory = (props) => {
             </div>
             <div className="modal-body">
               <div className={text.p2}>
-                Are you sure want to delete this category?
+                Are you sure want to delete this user?
               </div>
             </div>
             <div className="modal-footer">
@@ -58,5 +58,4 @@ const DeleteCategory = (props) => {
     </>
   );
 };
-
-export default connect()(DeleteCategory);
+export default connect()(DeleteUser);

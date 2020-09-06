@@ -1,3 +1,8 @@
+.form-group {
+  display: grid;
+  grid-auto-flow: row;
+  row-gap: 8px;
+}
 .form-control:focus {
   box-shadow: none;
   border: 1px solid #dedede;
@@ -24,8 +29,8 @@
 .custom-select:focus {
   box-shadow: 1px 2px 8px 0 rgba(58, 59, 69, 0.15);
 }
-.form-group{
-  display: grid;
-  grid-auto-flow: row;
-  row-gap: 8px;
+.form-select {
+  border: 1px solid #dedede;
+  padding: 4px;
+  border-radius: 4px;
 }
