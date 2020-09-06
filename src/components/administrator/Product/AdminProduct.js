@@ -1,12 +1,9 @@
 import React, { Component, Fragment } from "react";
-
 import { connect } from "react-redux";
 import { getAllProduct, modifyProduct } from "../../redux/actions/product";
 import AdminCardProduct from "./AdminCardProduct";
 import DeleteProduct from "./DeleteProduct";
 import EditProduct from "./EditProduct";
-import AdminSidenav from "../../layout/AdminSidenav";
-import AdminNavbar from "../../layout/AdminNavbar";
 import { withRouter } from "react-router";
 import "./AdminProduct.css";
 class AdminProducts extends Component {
@@ -122,15 +119,6 @@ class AdminProducts extends Component {
     });
     return (
       <Fragment>
-        <AdminNavbar />
-        <AdminSidenav
-          sortCategory={this.sortCategory}
-          sortBy={this.state.sortBy}
-          orderBy={this.state.orderBy}
-          name={this.state.name}
-          category={this.state.category}
-          page={this.state.page}
-        />
         <div className="container">
           <div className="row">
             <h2 className="title-product">Manage Product</h2>

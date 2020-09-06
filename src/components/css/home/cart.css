@@ -1,15 +1,20 @@
 .cart {
   display: grid;
-  height: 85vh;
+  height: 87vh;
   grid-template-rows: 32px 1fr max-content;
   row-gap: 16px;
+  background-color: white;
+  padding: 8px;
+  border-radius: 16px;
 }
 
 .cart-title {
   display: flex;
   justify-self: center;
-  font-weight: 600;
-  font-size: 24px;
+}
+.cart-bottom{
+  display: grid;
+  row-gap: 8px;
 }
 /* Wrapper */
 .cart-wrapper {
@@ -39,8 +44,6 @@
 }
 
 .empty {
-  font-size: 24px;
-  font-weight: 600;
   justify-self: center;
 }
 .product-list {
@@ -53,8 +56,6 @@
   grid-template-rows: repeat(2, max-content);
 }
 .cart-name {
-  font-size: 16px;
-  font-weight: 500;
   grid-area: name;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -83,8 +84,6 @@
   grid-template-columns: repeat(2, max-content);
   grid-auto-flow: column;
   column-gap: 8px;
-  font-size: 18px;
-  font-weight: 500;
   justify-content: end;
 }
 .button-cart-wrapper {

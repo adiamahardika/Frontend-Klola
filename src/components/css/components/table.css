@@ -1,0 +1,7 @@
+.table-header {
+    font-weight: 500;
+}
+.table-category .sentences-column{
+    display: flex;
+    justify-content: flex-start;
+}

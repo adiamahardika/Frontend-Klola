@@ -6,8 +6,8 @@
 }
 .product-image {
   border-radius: 16px;
-  width: 275px;
-  height: 175px;
+  width: 250px;
+  height: 150px;
 }
 .card-body {
   display: grid;
@@ -23,14 +23,7 @@
   grid-auto-flow: column;
   grid-template-columns: repeat(2, max-content);
   color: #e91e63;
-  font-weight: 400;
 }
 .product-name {
   color: #4285f4;
-  font-size: 24px;
-  font-weight: 500;
-}
-.product-price{
-    font-size: 16px;
-    font-weight: 500;
 }

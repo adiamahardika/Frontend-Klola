@@ -17,10 +17,10 @@ class Sidebar extends Component {
         <div className="collapse" id="collapseMenuManage">
           <ul>
             <li type="button" className="management-list">
-              <Link to="/adminproduct">Product</Link>
+              <Link to="/admin/category">Category</Link>
             </li>
             <li type="button" className="management-list">
-              <Link to="/adminproduct">Category</Link>
+              <Link to="/adminproduct">Product</Link>
             </li>
             <li type="button" className="management-list">
               <Link to="/adminuser">User</Link>

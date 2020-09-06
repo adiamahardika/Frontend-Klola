@@ -1,5 +1,6 @@
 import React from "react";
 import { parseToRupiah } from "../helpers/index";
+import { text, button } from "../helpers/class_name.json"
 import "../css/home/card_product.css";
 import "../css/components/button.css";
 const CardProduct = ({ product, addCart }) => {
@@ -15,16 +16,16 @@ const CardProduct = ({ product, addCart }) => {
     >
       <img src={product.image} className="product-image" alt="..." />
       <div className="card-body">
-        <div className="product-category">
+        <div className={`${text.p1} product-category`}>
           <ion-icon name="fast-food" />
           {product.category}
         </div>
-        <div className="product-name">{product.name}</div>
-        <div className="product-price">{parseToRupiah(product.price)}</div>
-        <div className="product-stock">Stock: {product.quantity}</div>
+        <div className={`${text.h2} product-name`}>{product.name}</div>
+        <div className={text.p1}>{parseToRupiah(product.price)}</div>
+        <div className={text.p2}>Stock: {product.quantity}</div>
         <button
           type="button"
-          className="btn button-primary"
+          className={`${button.primary} btn ${text.p1}`}
           onClick={selectProduct}
         >
           Add

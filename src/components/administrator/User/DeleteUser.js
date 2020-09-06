@@ -18,15 +18,16 @@ const DeleteUser = (props) => {
     }
 
     return(
-        <Modal show={show} onHide={onHide} variant="lg">
-            <Modal.Header>
-                <p>Are you sure want to delete this  user {user ? user.name : ""} ?</p>
-            </Modal.Header>
-            <Modal.Body align='right'>
-                <Button variant="primary" size="md" onClick={onCancelHandle} style={{ marginRight: "10px" }}>Cancel</Button>
-                <Button variant="outline-primary" size="md" onClick={onDeleteHandle}>Delete</Button>
-            </Modal.Body>
-        </Modal>
+        <div>Delete</div>
+        // <Modal show={show} onHide={onHide} variant="lg">
+        //     <Modal.Header>
+        //         <p>Are you sure want to delete this  user {user ? user.name : ""} ?</p>
+        //     </Modal.Header>
+        //     <Modal.Body align='right'>
+        //         <Button variant="primary" size="md" onClick={onCancelHandle} style={{ marginRight: "10px" }}>Cancel</Button>
+        //         <Button variant="outline-primary" size="md" onClick={onDeleteHandle}>Delete</Button>
+        //     </Modal.Body>
+        // </Modal>
     )
 
 }

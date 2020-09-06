@@ -1,6 +1,4 @@
 import React, { Component, Fragment } from "react";
-import AdminNavbar from "../../layout/AdminNavbar";
-import AdminSidenav from "../../layout/AdminSidenav";
 import { connect } from "react-redux";
 import { getAllUser } from "../../redux/actions/user";
 import UserItem from "./UserItem";
@@ -66,8 +64,6 @@ class User extends Component {
     ));
     return (
       <Fragment>
-        <AdminNavbar />
-        <AdminSidenav />
         <div className="container">
           <div className="row">
             <h2 className="title-user">Manage User</h2>

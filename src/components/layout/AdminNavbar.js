@@ -42,7 +42,7 @@
 //                             </div>
 //                             <div class="dropdown-menu" aria-labelledby="navbarDropdown" style={{fontFamily: 'Source Sans Pro, sans-serif', fontWeight:600}}>
 //                             <Link class="dropdown-item" to='/adminproduct'>Product</Link>
-//                             <Link class="dropdown-item" to="/admincategory">Category</Link>
+//                             <Link class="dropdown-item" to="/admin/category">Category</Link>
 //                             <Link class="dropdown-item" to="/adminuser">Cashier</Link>
 //                             </div>
 //                         </li>

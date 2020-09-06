@@ -61,49 +61,50 @@ class AddProduct extends Component {
     render() {
         const { show, onHide, categories } = this.props
         return (
-            <Modal show={show} onHide={onHide}>
-                <Modal.Header closeButton>
-                    <Modal.Title>ADD PRODUCT</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <Form onSubmit={this.postProduct} encType="multipart/form-data">
-                        <Form.Group>
-                            <Form.Label>Product Name </Form.Label>
-                            <Form.Control type="text" placeholder="Enter Product..." name="name" onChange={this.onCreateProduct} required/>
-                        </Form.Group>
-                        <Form.Group>
-                            <Form.Label>Description </Form.Label>
-                            <Form.Control type="text" placeholder="Enter Description..." name="description" onChange={this.onCreateProduct} required/>
-                        </Form.Group>
-                        <Form.Group>
-                            <Form.Label>Price </Form.Label>
-                            <Form.Control type="number" placeholder="Enter Price..." name="price" onChange={this.onCreateProduct} required/>
-                        </Form.Group>
-                        <Form.Group>
-                            <Form.Label>Quantity</Form.Label>
-                            <Form.Control type="number" placeholder="Enter Quantity..." name="quantity" onChange={this.onCreateProduct} required/>
-                        </Form.Group>
-                        <Form.Group>
-                            <Form.Label>Category</Form.Label>
-                            <Form.Control type="text" placeholder="Enter Category..."  name="category" onChange={this.onCreateProduct} as="select" required>
-                            <option selected value={0} disabled>Choose Category</option>
+            <div>Add</div>
+            // <Modal show={show} onHide={onHide}>
+            //     <Modal.Header closeButton>
+            //         <Modal.Title>ADD PRODUCT</Modal.Title>
+            //     </Modal.Header>
+            //     <Modal.Body>
+            //         <Form onSubmit={this.postProduct} encType="multipart/form-data">
+            //             <Form.Group>
+            //                 <Form.Label>Product Name </Form.Label>
+            //                 <Form.Control type="text" placeholder="Enter Product..." name="name" onChange={this.onCreateProduct} required/>
+            //             </Form.Group>
+            //             <Form.Group>
+            //                 <Form.Label>Description </Form.Label>
+            //                 <Form.Control type="text" placeholder="Enter Description..." name="description" onChange={this.onCreateProduct} required/>
+            //             </Form.Group>
+            //             <Form.Group>
+            //                 <Form.Label>Price </Form.Label>
+            //                 <Form.Control type="number" placeholder="Enter Price..." name="price" onChange={this.onCreateProduct} required/>
+            //             </Form.Group>
+            //             <Form.Group>
+            //                 <Form.Label>Quantity</Form.Label>
+            //                 <Form.Control type="number" placeholder="Enter Quantity..." name="quantity" onChange={this.onCreateProduct} required/>
+            //             </Form.Group>
+            //             <Form.Group>
+            //                 <Form.Label>Category</Form.Label>
+            //                 <Form.Control type="text" placeholder="Enter Category..."  name="category" onChange={this.onCreateProduct} as="select" required>
+            //                 <option selected value={0} disabled>Choose Category</option>
 
-                            {categories.map((category,index) => 
-                            <option key={index} value={category.id}>{category.name}</option>
-                            )}
+            //                 {categories.map((category,index) => 
+            //                 <option key={index} value={category.id}>{category.name}</option>
+            //                 )}
                            
-                            </Form.Control>
-                        </Form.Group>
-                        <Form.Group>
-                            <Form.Label>IMAGE</Form.Label>
-                            <Form.Control type="file" name="image" onChange={this.onChangeImage} required/>
-                        </Form.Group>
-                        <Button variant="primary" type="submit">
-                            SUBMIT
-                        </Button>
-                    </Form>
-                </Modal.Body>
-            </Modal>
+            //                 </Form.Control>
+            //             </Form.Group>
+            //             <Form.Group>
+            //                 <Form.Label>IMAGE</Form.Label>
+            //                 <Form.Control type="file" name="image" onChange={this.onChangeImage} required/>
+            //             </Form.Group>
+            //             <Button variant="primary" type="submit">
+            //                 SUBMIT
+            //             </Button>
+            //         </Form>
+            //     </Modal.Body>
+            // </Modal>
         );
     }
 }

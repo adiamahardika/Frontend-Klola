@@ -16,26 +16,27 @@ const DeleteProduct = (props) => {
     await onHide();
   };
   return (
-    <Modal show={show} onHide={onHide} variant="lg">
-      <Modal.Body>
-        <p>
-          Are you sure want to delete this {product ? product.name : ""} product
-          ?
-        </p>
-      </Modal.Body>
-      <Modal.Body align="right">
-        <Button
-          style={{ background: "#4285f4", marginRight: "10px" }}
-          size="sm"
-          onClick={onCancelDelete}
-        >
-          Cancel
-        </Button>
-        <Button variant="light" size="sm" onClick={onDeleteProduct}>
-          Delete
-        </Button>
-      </Modal.Body>
-    </Modal>
+    <div>Delete</div>
+    // <Modal show={show} onHide={onHide} variant="lg">
+    //   <Modal.Body>
+    //     <p>
+    //       Are you sure want to delete this {product ? product.name : ""} product
+    //       ?
+    //     </p>
+    //   </Modal.Body>
+    //   <Modal.Body align="right">
+    //     <Button
+    //       style={{ background: "#4285f4", marginRight: "10px" }}
+    //       size="sm"
+    //       onClick={onCancelDelete}
+    //     >
+    //       Cancel
+    //     </Button>
+    //     <Button variant="light" size="sm" onClick={onDeleteProduct}>
+    //       Delete
+    //     </Button>
+    //   </Modal.Body>
+    // </Modal>
   );
 };
 export default connect()(DeleteProduct);

@@ -1,0 +1,14 @@
+{
+  "button": {
+    "primary": "button-primary",
+    "outline-primary": "button-outline-primary",
+    "danger": "button-danger"
+  },
+  "text": {
+    "h1": "header-1",
+    "h2": "header-2",
+    "p1": "paragraph-1",
+    "p2": "paragraph-2",
+    "p3": "paragraph-3"
+  }
+}

@@ -44,57 +44,58 @@ class EditUser extends Component {
   render() {
     const { show, onHide } = this.props;
     return (
-      <Modal show={show} onHide={onHide}>
-        <Modal.Header closeButton>
-          <Modal.Title>EDIT USER</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form onSubmit={this.patchUser}>
-            <Form.Group>
-              <Form.Label>NAME</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Insert Name"
-                name="name"
-                onChange={this.onChangeValue}
-                value={this.state.name}
-              />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>EMAIL</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Insert Email"
-                name="email"
-                onChange={this.onChangeValue}
-                value={this.state.email}
-                required
-              />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>STATUS</Form.Label>
-              <Form.Control
-                type="text"
-                name="status"
-                defaultValue={"DEFAULT"}
-                onChange={this.onChangeValue}
-                value={this.state.status}
-                as="select"
-                required
-              >
-                <option value="DEFAULT">
-                  Choose..
-                </option>
-                <option value={1}>Administrator</option>
-                <option value={2}>Cashier</option>
-              </Form.Control>
-            </Form.Group>
-            <Button variant="primary" type="submit">
-              SUBMIT
-            </Button>
-          </Form>
-        </Modal.Body>
-      </Modal>
+      <div>Delete</div>
+      // <Modal show={show} onHide={onHide}>
+      //   <Modal.Header closeButton>
+      //     <Modal.Title>EDIT USER</Modal.Title>
+      //   </Modal.Header>
+      //   <Modal.Body>
+      //     <Form onSubmit={this.patchUser}>
+      //       <Form.Group>
+      //         <Form.Label>NAME</Form.Label>
+      //         <Form.Control
+      //           type="text"
+      //           placeholder="Insert Name"
+      //           name="name"
+      //           onChange={this.onChangeValue}
+      //           value={this.state.name}
+      //         />
+      //       </Form.Group>
+      //       <Form.Group>
+      //         <Form.Label>EMAIL</Form.Label>
+      //         <Form.Control
+      //           type="text"
+      //           placeholder="Insert Email"
+      //           name="email"
+      //           onChange={this.onChangeValue}
+      //           value={this.state.email}
+      //           required
+      //         />
+      //       </Form.Group>
+      //       <Form.Group>
+      //         <Form.Label>STATUS</Form.Label>
+      //         <Form.Control
+      //           type="text"
+      //           name="status"
+      //           defaultValue={"DEFAULT"}
+      //           onChange={this.onChangeValue}
+      //           value={this.state.status}
+      //           as="select"
+      //           required
+      //         >
+      //           <option value="DEFAULT">
+      //             Choose..
+      //           </option>
+      //           <option value={1}>Administrator</option>
+      //           <option value={2}>Cashier</option>
+      //         </Form.Control>
+      //       </Form.Group>
+      //       <Button variant="primary" type="submit">
+      //         SUBMIT
+      //       </Button>
+      //     </Form>
+      //   </Modal.Body>
+      // </Modal>
     );
   }
 }

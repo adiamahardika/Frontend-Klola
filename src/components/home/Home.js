@@ -7,6 +7,7 @@ import { getAllProduct, modifyProduct } from "../redux/actions/product";
 import { getAllCategory } from "../redux/actions/category";
 import { addCart } from "../redux/actions/cart";
 import { withRouter } from "react-router";
+import { text } from "../helpers/class_name.json"
 import "../css/home/home.css";
 import "../css/components/button.css";
 import "../css/components/form.css";
@@ -112,18 +113,18 @@ class Home extends Component {
                 >
                   <ion-icon name="funnel" />
                 </button>
-                <div class="dropdown-menu">
+                <div className="dropdown-menu">
                   <button
                     onClick={this.filterProduct}
                     value=""
-                    class="dropdown-item"
+                    className={`${text.p1} dropdown-item`}
                   >
                     All
                   </button>
                   {categories.map((category, index) => (
                     <button
                       onClick={this.filterProduct}
-                      class="dropdown-item"
+                      class={`${text.p1} dropdown-item`}
                       key={index}
                       value={category.id}
                     >
@@ -144,28 +145,28 @@ class Home extends Component {
                 <div className="dropdown-menu">
                   <button
                     onClick={this.sortProduct}
-                    className="dropdown-item"
+                    className={`${text.p1} dropdown-item`}
                     value=""
                   >
                     None
                   </button>
                   <button
                     onClick={this.sortProduct}
-                    className="dropdown-item"
+                    className={`${text.p1} dropdown-item`}
                     value="name"
                   >
                     Name
                   </button>
                   <button
                     onClick={this.sortProduct}
-                    className="dropdown-item"
+                    className={`${text.p1} dropdown-item`}
                     value="price"
                   >
                     Price
                   </button>
                   <button
                     onClick={this.sortProduct}
-                    className="dropdown-item"
+                    className={`${text.p1} dropdown-item`}
                     value="quantity"
                   >
                     Stock
@@ -181,7 +182,7 @@ class Home extends Component {
                   <option value="DESC">DSC</option>
                 </select>
               <input
-                className="form-control search"
+                className={`${text.p1} form-control search`}
                 type="text"
                 placeholder="Search Product"
                 aria-label="Search"

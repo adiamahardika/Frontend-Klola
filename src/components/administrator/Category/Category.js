@@ -1,104 +1,82 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getAllCategory } from "../../redux/actions/category";
-import AdminNavbar from "../../layout/AdminNavbar";
-import AdminSidenav from "../../layout/AdminSidenav";
-import CategoryItem from "./CategoryItem";
-import EditCategory from "./EditCategory";
-import DeleteCategory from "./DeleteCategory";
-import "./Category.css";
-
+import Layout from "../../layout/Layout";
+import ListCategory from "./list_category";
+import EditCategory from "./edit_category";
+import DeleteCategory from "./delete_category";
+import InsertCategory from "./insert_category";
+import "../../css/admin/category.css";
+import "../../css/components/button.css";
+import "../../css/components/table.css";
+import "../../css/components/form.css";
+import "../../css/components/text.css";
 class Category extends Component {
   state = {
-    showEdit: false,
-    showDelete: false,
     selectCategoryEdit: null,
-    selectCategoryDelete: null,
+    selectCategoryDelete: [],
   };
   componentDidMount() {
-    this.getAllCategory();
-  }
-
-  getAllCategory() {
     this.props.dispatch(getAllCategory());
   }
-  onShowEdit = () => {
-    this.setState({
-      showEdit: true,
-    });
-  };
-
-  onCloseEdit = () => {
-    this.setState({
-      showEdit: false,
-    });
-  };
   onSelectCategoryEdit = (category) => {
     this.setState({
       selectCategoryEdit: category,
       showEdit: true,
     });
   };
-
-  onShowDelete = () => {
-    this.setState({
-      showDelete: true,
-    });
-  };
-  onCloseDelete = () => {
-    this.setState({
-      showDelete: false,
-    });
-  };
   onSelectCategoryDelete = (category) => {
     this.setState({
       selectCategoryDelete: category,
-      showDelete: true,
     });
   };
 
   render() {
     const { categories } = this.props;
-    const listCategories = categories && categories.map((category, index) => (
-      <CategoryItem
-        key={index}
-        category={category}
-        onSelectCategoryEdit={this.onSelectCategoryEdit}
-        onSelectCategoryDelete={this.onSelectCategoryDelete}
-      />
-    ));
+    const listCategories =
+      categories &&
+      categories.map((category, index) => (
+        <ListCategory
+          key={index}
+          index={index}
+          category={category}
+          onSelectCategoryEdit={this.onSelectCategoryEdit}
+          onSelectCategoryDelete={this.onSelectCategoryDelete}
+        />
+      ));
     return (
-      <Fragment>
-        <AdminNavbar />
-        <AdminSidenav />
-        <div className="container category">
-          <div className="row">
-            <h2 className="title-category">Manage Category</h2>
-            <div className="row">
-              <table className="tableCategory table-bordered table-hover">
-                <thead className="thead-light">
-                  <tr>
-                    <th scope="col">Manage</th>
-                    <th scope="col">ID</th>
-                    <th scope="col">Name Category</th>
-                  </tr>
-                </thead>
-                <tbody>{listCategories}</tbody>
-              </table>
-            </div>
+      <Layout>
+        <div className="admin-category-wrapper">
+          <div className="title-admin">Category</div>
+          <div className="form-category-wrapper">
+            <button
+              type="button"
+              className="button-primary"
+              data-toggle="modal"
+              data-target="#modalInsertCategory"
+            >
+              Insert
+            </button>
+            <input
+              className="form-control search"
+              type="text"
+              placeholder="Search Category"
+              aria-label="Search"
+            />
+          </div>
+          <div className="table-category">
+            <div className="table-header">No</div>
+            <div className="table-header">Manage</div>
+            <div className="table-header">Name Category</div>
+            <div className="table-header">Date Created</div>
+            <div className="table-header">Date Updated</div>
+            {listCategories}
           </div>
         </div>
-        <EditCategory
-          show={this.state.showEdit}
-          onHide={this.onCloseEdit}
-          category={this.state.selectCategoryEdit}
-        />
-        <DeleteCategory
-          show={this.state.showDelete}
-          onHide={this.onCloseDelete}
-          category={this.state.selectCategoryDelete}
-        />
-      </Fragment>
+        <InsertCategory />
+        <EditCategory category={this.state.selectCategoryEdit} />
+        <DeleteCategory category={this.state.selectCategoryDelete} />
+      </Layout>
     );
   }
 }

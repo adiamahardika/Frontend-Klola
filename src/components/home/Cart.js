@@ -7,12 +7,12 @@ import {
   deleteCart,
   cancelCart,
 } from "../redux/actions/cart";
+import { parseToRupiah } from "../helpers/index";
+import { text, button } from "../helpers/class_name.json";
 import Checkout from "../order/Checkout";
 import empty from "../../images/empty-cart.png";
-import { parseToRupiah } from "../helpers/index";
 import "../css/home/cart.css";
 import "../css/components/button.css";
-import { checkout } from "../redux/actions/order";
 class Cart extends Component {
   state = {
     show: false,
@@ -58,7 +58,7 @@ class Cart extends Component {
         return (
           <button
             type="button"
-            className="button-primary"
+            className={`${button.primary} ${text.p1}`}
             onClick={this.handleShow}
           >
             Checkout
@@ -66,7 +66,7 @@ class Cart extends Component {
         );
       } else {
         return (
-          <button type="button" className="btn button-primary" disabled>
+          <button type="button" className={`${button.primary} btn ${text.p1}`} disabled>
             Checkout
           </button>
         );
@@ -74,31 +74,31 @@ class Cart extends Component {
     };
     return (
       <>
-        <div className="cart-title">Cart</div>
+        <div className={`${text.h2} cart-title`}>Cart</div>
         {carts.length !== 0 ? (
           <div className="product-list-wrapper">
             {carts.map((cart) => (
               <div className="product-list">
                 <img src={cart.image} alt="" className="cart-image" />
-                <div className="cart-name">{cart.name}</div>
-                <div className="cart-price">
+                <div className={`${text.p1} cart-name`}>{cart.name}</div>
+                <div className={`${text.p3} cart-price`}>
                   {parseToRupiah(cart.price * cart.qty)}
                 </div>
-                <div className="cart-quantity">
+                <div className={`cart-quantity`}>
                   <button
                     type="button"
-                    className="button-icon"
+                    className={`${text.p1} button-icon`}
                     onClick={() => this.reduceQuantity(cart.id)}
                   >
-                    <ion-icon name="remove" />
+                    -
                   </button>
-                  <div className="cart-form">{cart.qty}</div>
+                  <div className={`${text.p1} cart-form`}>{cart.qty}</div>
                   <button
                     type="button"
-                    className="button-icon"
+                    className={`${text.p1} button-icon`}
                     onClick={() => this.addQuantity(cart)}
                   >
-                    <ion-icon name="add" />
+                    +
                   </button>
                   <button
                     type="button"
@@ -114,18 +114,18 @@ class Cart extends Component {
         ) : (
           <div className="cart-image-empty-wrapper">
             <img src={empty} className="image-empty" alt="empty-cart" />
-            <div className="empty">Your Cart is Empty!</div>
+            <div className={`${text.h2} empty`}>Your Cart is Empty!</div>
           </div>
         )}
-        <div>
+        <div className="cart-bottom">
           <div className="total">
-            <div>Total:</div>
-            <div>{parseToRupiah(total)}</div>
+            <div className={text.h2}>Total:</div>
+            <div className={text.h2}>{parseToRupiah(total)}</div>
           </div>
           <div className="button-cart-wrapper">
             <button
               type="button"
-              className="button-outline-primary"
+              className={`${button["outline-primary"]} ${text.p1}`}
               onClick={this.cancelCart}
             >
               Cancel
