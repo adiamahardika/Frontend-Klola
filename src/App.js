@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { Provider } from 'react-redux';
 import './App.css';
-import Home from './components/home/Home'
+import Home from './components/home/home'
 import store from './components/redux/store';
 import AdminProduct from './components/administrator/Product/AdminProduct';
 import AdminCategory from './components/administrator/category/category';

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Layout from "../layout/Layout";
-import CardProduct from "./CardProduct";
-import Cart from "./Cart";
+import CardProduct from "./card_product";
+import Cart from "./cart";
 import { connect } from "react-redux";
 import { getAllProduct, modifyProduct } from "../redux/actions/product";
 import { getAllCategory } from "../redux/actions/category";
