@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
+import { text, button } from "../../helpers/class_name.json";
 import { postCategory } from "../../redux/actions/category";
 class InsertCategory extends Component {
   state = {
@@ -25,7 +26,7 @@ class InsertCategory extends Component {
         return (
           <button
             type="submit"
-            className="button-primary"
+            className={`${button.primary} ${text.p3}`}
             onClick={this.postCategory}
             data-dismiss="modal"
           >
@@ -34,7 +35,11 @@ class InsertCategory extends Component {
         );
       } else {
         return (
-          <button type="submit" className="btn button-primary" disabled>
+          <button
+            type="submit"
+            className={`${button.primary} ${text.p3} btn`}
+            disabled
+          >
             Submit
           </button>
         );
@@ -51,7 +56,7 @@ class InsertCategory extends Component {
           <div className="modal-dialog modal-dialog-centered" role="document">
             <div className="modal-content">
               <div className="modal-header">
-                <h5>Insert Category</h5>
+                <div className={text.h2}>Insert Category</div>
                 <button
                   type="button"
                   className="close"
@@ -64,16 +69,14 @@ class InsertCategory extends Component {
               <div className="modal-body">
                 <form className="needs-validation" noValidate>
                   <div className="form-group">
-                    <div>
-                      <label>Category Name:</label>
-                      <input
-                        name="name"
-                        type="text"
-                        className="form-control paragraph-2"
-                        onChange={this.onCreateCategory}
-                        required
-                      />
-                    </div>
+                    <div className={text.p1}>Category Name :</div>
+                    <input
+                      name="name"
+                      type="text"
+                      className={`${text.p2} form-control`}
+                      onChange={this.onCreateCategory}
+                      required
+                    />
                   </div>
                 </form>
               </div>
@@ -81,7 +84,7 @@ class InsertCategory extends Component {
                 <button
                   type="button"
                   data-dismiss="modal"
-                  className="button-outline-primary"
+                  className={`${text.p3} ${button["outline-primary"]}`}
                 >
                   Cancel
                 </button>

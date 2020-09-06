@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getAllCategory } from "../../redux/actions/category";
+import { text, button } from "../../helpers/class_name.json"
 import Layout from "../../layout/Layout";
 import ListCategory from "./list_category";
 import EditCategory from "./edit_category";
@@ -47,29 +48,29 @@ class Category extends Component {
     return (
       <Layout>
         <div className="admin-category-wrapper">
-          <div className="title-admin">Category</div>
+          <div className={text.h1}>Category</div>
           <div className="form-category-wrapper">
             <button
               type="button"
-              className="button-primary"
+              className={`${button.primary} ${text.p3}`}
               data-toggle="modal"
               data-target="#modalInsertCategory"
             >
               Insert
             </button>
             <input
-              className="form-control search"
+              className={`${text.p3} form-control search`}
               type="text"
               placeholder="Search Category"
               aria-label="Search"
             />
           </div>
-          <div className="table-category">
-            <div className="table-header">No</div>
-            <div className="table-header">Manage</div>
-            <div className="table-header">Name Category</div>
-            <div className="table-header">Date Created</div>
-            <div className="table-header">Date Updated</div>
+          <div className="admin-table category">
+            <div className={text.p1}>No</div>
+            <div className={text.p1}>Manage</div>
+            <div className={text.p1}>Name Category</div>
+            <div className={text.p1}>Date Created</div>
+            <div className={text.p1}>Date Updated</div>
             {listCategories}
           </div>
         </div>

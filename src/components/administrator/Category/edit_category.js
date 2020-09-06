@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { patchCategory } from "../../redux/actions/category";
+import { text, button } from "../../helpers/class_name.json";
 class EditCategory extends Component {
   state = {
     id: "",
@@ -32,7 +33,7 @@ class EditCategory extends Component {
         return (
           <button
             type="submit"
-            className="button-primary"
+            className={`${button.primary} ${text.p3}`}
             onClick={this.patchCategory}
             data-dismiss="modal"
           >
@@ -41,7 +42,11 @@ class EditCategory extends Component {
         );
       } else {
         return (
-          <button type="submit" className="btn button-primary" disabled>
+          <button
+            type="submit"
+            className={`${button.primary} btn ${text.p3}`}
+            disabled
+          >
             Submit
           </button>
         );
@@ -58,7 +63,7 @@ class EditCategory extends Component {
           <div className="modal-dialog modal-dialog-centered" role="document">
             <div className="modal-content">
               <div className="modal-header">
-                <h5>Edit Category</h5>
+                <div className={text.h2}>Edit Category</div>
                 <button
                   type="button"
                   className="close"
@@ -71,12 +76,12 @@ class EditCategory extends Component {
               <div className="modal-body">
                 <form className="needs-validation" noValidate>
                   <div className="form-group">
-                    <label>Category Name:</label>
+                    <div className={text.p1}>Category Name :</div>
                     <input
                       value={this.state.name}
                       name="name"
                       type="text"
-                      className="form-control"
+                      className={`${text.p2} form-control`}
                       onChange={this.onChangeValue}
                       required
                     />
@@ -87,7 +92,7 @@ class EditCategory extends Component {
                 <button
                   type="button"
                   data-dismiss="modal"
-                  className="button-outline-primary"
+                  className={`${button["outline-primary"]} ${text.p3}`}
                 >
                   Cancel
                 </button>

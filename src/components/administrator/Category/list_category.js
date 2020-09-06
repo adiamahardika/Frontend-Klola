@@ -1,5 +1,6 @@
 import React from "react";
 import { parseDate } from "../../helpers/index";
+import { text, button } from "../../helpers/class_name.json"
 const ListCategory = ({
   index,
   category,
@@ -20,7 +21,7 @@ const ListCategory = ({
       <div className="manage-column">
         <button
           type="button"
-          className="button-danger"
+          className={`${button.danger} ${text.p3}`}
           data-toggle="modal"
           data-target="#modalDeleteCategory"
           onClick={onClickDeleteCategory}
@@ -29,7 +30,7 @@ const ListCategory = ({
         </button>
         <button
           type="button"
-          className="button-primary"
+          className={`${button.primary} ${text.p3}`}
           data-toggle="modal"
           data-target="#modalEditCategory"
           onClick={onClickEditCategory}

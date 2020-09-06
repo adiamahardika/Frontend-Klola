@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { deleteCategory } from "../../redux/actions/category";
+import { text, button } from "../../helpers/class_name.json"
 const DeleteCategory = (props) => {
   const { category, dispatch } = props;
   const onDeleteHandle = async (event) => {
@@ -19,7 +20,7 @@ const DeleteCategory = (props) => {
         <div className="modal-dialog modal-dialog-centered" role="document">
           <div className="modal-content">
             <div className="modal-header">
-              <div>Delete Category</div>
+              <div className={text.h2}>Delete Category</div>
               <button
                 type="button"
                 className="close"
@@ -30,19 +31,19 @@ const DeleteCategory = (props) => {
               </button>
             </div>
             <div className="modal-body">
-              <div>Are you sure want to delete this category?</div>
+              <div className={text.p2}>Are you sure want to delete this category?</div>
             </div>
             <div className="modal-footer">
               <button
                 type="button"
-                className="button-outline-primary"
+                className={`${button["outline-primary"]} ${text.p3}`}
                 data-dismiss="modal"
               >
                 Cancel
               </button>
               <button
                 type="button"
-                className="button-danger"
+                className={`${button.danger} ${text.p3}`}
                 onClick={onDeleteHandle}
                 data-dismiss="modal"
               >
