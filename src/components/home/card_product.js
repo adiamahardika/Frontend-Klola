@@ -4,6 +4,7 @@ import { text, button } from "../helpers/class_name.json"
 import "../css/home/card_product.css";
 import "../css/components/button.css";
 import "../css/components/image.css";
+import "../css/components/text.css";
 const CardProduct = ({ product, addCart }) => {
   const selectProduct = (event) => {
     event.preventDefault();
@@ -17,7 +18,7 @@ const CardProduct = ({ product, addCart }) => {
     >
       <img src={product.image} className="product-image" alt="..." />
       <div className="card-body">
-        <div className={`${text.p1} product-category`}>
+        <div className={`${text.p1} product-category text-icon`}>
           <ion-icon name="fast-food" />
           {product.category}
         </div>

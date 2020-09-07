@@ -11,8 +11,7 @@ const Layout = (props) => {
   };
   return (
     <div className="layout">
-      <Navbar onLogout={onLogout.bind(this)} />
-      <Sidebar />
+      <Sidebar onLogout={onLogout.bind(this)}/>
       {props.children}
     </div>
   );

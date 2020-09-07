@@ -4,12 +4,11 @@
   padding: 8px;
   display: grid;
   row-gap: 8px;
-  grid-template-rows: repeat(3, max-content);
+  grid-auto-flow: row;
+  grid-template-rows: repeat(6, max-content);
 }
 /*Sidebar Menu*/
 .sidebar-menu {
-  font-size: 16px;
-  font-weight: 500;
   color: white;
   padding: 4px;
   display: block;

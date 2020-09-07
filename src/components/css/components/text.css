@@ -26,3 +26,11 @@
   font-size: 14px;
   font-weight: 400;
 }
+
+.text-icon {
+  display: grid;
+  align-items: center;
+  column-gap: 4px;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(2, max-content);
+}

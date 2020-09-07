@@ -2,16 +2,25 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 import { routes } from "../helpers/routes.json";
+import { text } from "../helpers/class_name.json";
 import "../css/layout/sidebar.css";
+import "../css/components/text.css";
 class Sidebar extends Component {
   render() {
+    const { onLogout } = this.props;
     return (
       <div className="sidebar">
-        <Link className="sidebar-menu" to={routes.home}>
-          Home
-        </Link>
+        <div className={`${text.p1} sidebar-menu`}>
+          Hai, {localStorage.getItem("name")}
+        </div>
+        <div className={`${text.p1} sidebar-menu text-icon`}>
+          <ion-icon name="home"></ion-icon>
+          <Link className={`${text.p1} sidebar-menu`} to={routes.home}>
+            Home
+          </Link>
+        </div>
         <div
-          className="sidebar-menu dropdown-toggle"
+          className={`${text.p1} sidebar-menu dropdown-toggle`}
           type="button"
           data-toggle="collapse"
           data-target="#collapseMenuManage"
@@ -31,9 +40,22 @@ class Sidebar extends Component {
             </li>
           </ul>
         </div>
-        <Link className="sidebar-menu" to={routes.history}>
-          History
-        </Link>
+        <div className={`${text.p1} sidebar-menu text-icon`}>
+          <ion-icon name="bar-chart"></ion-icon>
+          <Link className={`${text.p1} sidebar-menu`} to={routes.history}>
+            History
+          </Link>
+        </div>
+        <div className={`${text.p1} sidebar-menu text-icon`}>
+          <ion-icon name="log-out"></ion-icon>
+          <Link
+            className={`${text.p1} sidebar-menu`}
+            to="/login"
+            onClick={onLogout.bind(this)}
+          >
+            Logout
+          </Link>
+        </div>
       </div>
     );
   }

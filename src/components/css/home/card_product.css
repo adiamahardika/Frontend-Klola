@@ -12,11 +12,6 @@
   grid-template-rows: repeat(5, max-content);
 }
 .product-category {
-  display: grid;
-  align-items: center;
-  column-gap: 4px;
-  grid-auto-flow: column;
-  grid-template-columns: repeat(2, max-content);
   color: #e91e63;
 }
 .product-name {
