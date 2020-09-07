@@ -15,7 +15,6 @@ import "../css/home/cart.css";
 import "../css/components/button.css";
 class Cart extends Component {
   state = {
-    show: false,
     count: 0,
     id: parseInt(localStorage.getItem("user-id")),
     name: localStorage.getItem("name"),
@@ -35,20 +34,7 @@ class Cart extends Component {
     this.props.dispatch(deleteCart(cart));
   };
   cancelCart = (data) => {
-    this.setState({
-      show: false,
-    });
     this.props.dispatch(cancelCart(data));
-  };
-  handleShow = () => {
-    this.setState({
-      show: true,
-    });
-  };
-  handleClose = () => {
-    this.setState({
-      show: false,
-    });
   };
 
   render() {
@@ -60,13 +46,19 @@ class Cart extends Component {
             type="button"
             className={`${button.primary} ${text.p1}`}
             onClick={this.handleShow}
+            data-toggle="modal"
+            data-target="#modalCheckout"
           >
             Checkout
           </button>
         );
       } else {
         return (
-          <button type="button" className={`${button.primary} btn ${text.p1}`} disabled>
+          <button
+            type="button"
+            className={`${button.primary} btn ${text.p1}`}
+            disabled
+          >
             Checkout
           </button>
         );

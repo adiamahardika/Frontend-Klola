@@ -1,6 +1,6 @@
 .cart {
   display: grid;
-  height: 87vh;
+  height: 95vh;
   grid-template-rows: 32px 1fr max-content;
   row-gap: 16px;
   background-color: white;

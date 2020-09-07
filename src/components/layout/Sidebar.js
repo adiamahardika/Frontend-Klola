@@ -19,13 +19,16 @@ class Sidebar extends Component {
             Home
           </Link>
         </div>
-        <div
-          className={`${text.p1} sidebar-menu dropdown-toggle`}
-          type="button"
-          data-toggle="collapse"
-          data-target="#collapseMenuManage"
-        >
-          Administrator
+        <div className={`${text.p1} sidebar-menu text-icon`}>
+          <ion-icon name="settings"></ion-icon>
+          <div
+            className={`${text.p1} sidebar-menu dropdown-toggle`}
+            type="button"
+            data-toggle="collapse"
+            data-target="#collapseMenuManage"
+          >
+            Administrator
+          </div>
         </div>
         <div className="collapse" id="collapseMenuManage">
           <ul>

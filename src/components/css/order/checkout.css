@@ -1,0 +1,23 @@
+.modal-checkout {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content 1fr;
+}
+.modal-checkout > div {
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #dedede;
+}
+div > .name {
+  justify-content: flex-start;
+}
+div > .price {
+  justify-content: flex-end;
+}
+div > .total-checkout {
+  border: none;
+  display: grid;
+  justify-content: flex-end;
+  grid-column-start: 4;
+}
