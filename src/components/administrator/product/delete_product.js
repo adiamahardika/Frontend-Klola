@@ -1,19 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
-import { deleteCategory } from "../../redux/actions/category";
-import { text, button } from "../../helpers/class_name.json";
-const DeleteCategory = (props) => {
-  const { category, dispatch } = props;
+import { deleteProduct } from "../../redux/actions/product";
+import { text, button } from "../../helpers/class_name.json"
+const DeleteProduct = (props) => {
+  const { product, dispatch } = props;
   const onDeleteHandle = async (event) => {
     event.preventDefault();
-    await dispatch(deleteCategory(category.id));
+    await dispatch(deleteProduct(product.id));
   };
-
   return (
     <>
       <div
         className="modal fade"
-        id="modalDeleteCategory"
+        id="modalDeleteProduct"
         role="dialog"
         data-backdrop="static"
       >
@@ -32,7 +31,7 @@ const DeleteCategory = (props) => {
             </div>
             <div className="modal-body">
               <div className={text.p2}>
-                Are you sure want to delete this category?
+                Are you sure want to delete this product?
               </div>
             </div>
             <div className="modal-footer">
@@ -58,5 +57,4 @@ const DeleteCategory = (props) => {
     </>
   );
 };
-
-export default connect()(DeleteCategory);
+export default connect()(DeleteProduct);

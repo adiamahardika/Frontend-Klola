@@ -2,6 +2,9 @@
   grid-area: sidebar;
   background-color: #4285f4;
   padding: 8px;
+  display: grid;
+  row-gap: 8px;
+  grid-template-rows: repeat(3, max-content);
 }
 /*Sidebar Menu*/
 .sidebar-menu {
@@ -9,9 +12,10 @@
   font-weight: 500;
   color: white;
   padding: 4px;
-  margin-bottom: 8px;
+  display: block;
 }
 .sidebar-menu:hover {
+  text-decoration: none;
   color: white;
   background-color: hsl(217, 89%, 50%);
   border-radius: 4px;

@@ -18,10 +18,10 @@ class Navbar extends Component {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
         <div className="nav-item dropdown">
-          <Link
+          <div
             className="nav-link dropdown-toggle"
             id="navbarDropdownMenuLink"
             data-toggle="dropdown"
@@ -29,7 +29,7 @@ class Navbar extends Component {
             aria-expanded="false"
           >
             Hai, {localStorage.getItem("name")}
-          </Link>
+          </div>
           <div
             className="dropdown-menu"
             aria-labelledby="navbarDropdownMenuLink"

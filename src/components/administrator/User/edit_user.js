@@ -117,7 +117,7 @@ class EditUser extends Component {
                       name="status"
                       defaultValue={"default"}
                     >
-                      <option className={text.p2} value={"default"}>
+                      <option className={text.p2} value={"default"} disabled>
                         Choose user status..
                       </option>
                       <option className={text.p2} value={1}>

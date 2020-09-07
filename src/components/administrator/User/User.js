@@ -47,7 +47,7 @@ class AdminUser extends Component {
     return (
       <Layout>
         <div className="admin-wrapper">
-          <div className={text.h1}>Manage User</div>
+          <div className={text.h1}>User</div>
           <div className="find-product-wrapper">
             <button
               type="button"

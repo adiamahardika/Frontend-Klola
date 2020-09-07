@@ -3,6 +3,7 @@ import { parseToRupiah } from "../helpers/index";
 import { text, button } from "../helpers/class_name.json"
 import "../css/home/card_product.css";
 import "../css/components/button.css";
+import "../css/components/image.css";
 const CardProduct = ({ product, addCart }) => {
   const selectProduct = (event) => {
     event.preventDefault();
