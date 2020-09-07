@@ -1,0 +1,38 @@
+.chart-wrapper {
+  display: grid;
+  grid-area: content;
+  grid-template-rows: max-content 1fr;
+  grid-template-areas:
+    "start end submit"
+    "chart chart chart";
+  row-gap: 16px;
+  column-gap: 16px;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+}
+.start {
+  grid-area: start;
+}
+.end {
+  grid-area: end;
+}
+.submit {
+  display: flex;
+  align-items: center;
+  grid-area: submit;
+}
+.chart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  grid-area: chart;
+  background-color: white;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15) !important;
+  width: 83vw;
+  height: 80vh;
+}
+.line {
+  width: 83vw;
+}

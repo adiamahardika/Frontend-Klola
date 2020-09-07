@@ -1,35 +1,28 @@
 import React, { Component } from "react";
-import Calendar from "react-datepicker";
-import { Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import { chartOrder } from "../redux/actions/order";
-// import { Line } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
+import { text, button } from "../helpers/class_name.json";
+import Calendar from "react-datepicker";
 import moment from "moment";
 import Layout from "../layout/Layout";
+import "../css/order/chart.css";
+import "../css/components/form.css";
 import "react-datepicker/dist/react-datepicker.css";
 class History extends Component {
   state = {
     start: new Date(),
     end: new Date(),
   };
-
-  onLogout() {
-    localStorage.removeItem("user-id");
-    localStorage.removeItem("token");
-    localStorage.removeItem("isAuth");
-    this.props.history.push("/login");
-  }
   componentDidMount() {
-    if (!localStorage.getItem("isAuth")) {
-      this.props.history.push("/login");
-    }
+    // if (!localStorage.getItem("isAuth")) {
+    //   this.props.history.push("/login");
+    // }
   }
   onStart = (event) => {
-    console.log(event);
     this.setState({ start: event });
   };
   onEnd = (event) => {
-    console.log(event);
     this.setState({ end: event });
   };
 
@@ -42,27 +35,27 @@ class History extends Component {
 
   render() {
     const { history } = this.props;
-    let x = [];
-    let y = [];
-    let i = 0;
+    let date = [];
+    let total = [];
+    let index = 0;
     history.forEach((item) => {
-      x[i] = item.date;
-      y[i] = item.total;
-      i++;
+      date[index] = item.date;
+      total[index] = item.total;
+      index++;
     });
     const data = {
-      labels: x,
+      labels: date,
       datasets: [
         {
           label: "Transaction History",
-          fill: false,
+          fill: true,
           lineTension: 0.1,
           backgroundColor: "rgba(75,192,192,0.4)",
           borderColor: "#4285f4",
-          borderCapStyle: "butt",
-          borderDash: [],
-          borderDashOffset: 0.0,
-          borderJoinStyle: "miter",
+          // borderCapStyle: ,
+          // borderDash: [],
+          // borderDashOffset: 0.0,
+          // borderJoinStyle: "miter",
           pointBorderColor: "#4285f4",
           pointBackgroundColor: "#fff",
           pointBorderWidth: 1,
@@ -72,44 +65,40 @@ class History extends Component {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: y,
+          data: total,
         },
       ],
     };
 
     return (
       <Layout>
-        <div className="container" style={{ textAlign: "center" }}>
-          <div className="row">
-            <div className="col-md-10">
-              <div className="col-md-12"></div>
-              <div className="row">
-                <div className="col-md-11">
-                  <div className="row" style={{ marginTop: "10px" }}>
-                    <div className="col-md-5">
-                      <div>Start Date</div>
-                      <Calendar
-                        onChange={this.onStart}
-                        selected={this.state.start}
-                      />
-                    </div>
-                    <div className="col-md-5">
-                      <div> End Date</div>
-                      <Calendar
-                        onChange={this.onEnd}
-                        selected={this.state.end}
-                      />
-                    </div>
-                    <div className="col-md-2">
-                      <Button onClick={this.onSubmit}>Submit</Button>
-                    </div>
-                  </div>
-                  <div className="col-md-10" style={{ marginTop: "20px" }}>
-                    {/* <Line data={data} /> */}
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div className="chart-wrapper">
+          <div className="start form-group">
+            <div className={text.p1}>Start Date</div>
+            <Calendar
+              className={`${text.p2} form-control`}
+              onChange={this.onStart}
+              selected={this.state.start}
+            />
+          </div>
+          <div className="end form-group">
+            <div className={text.p1}>End Date</div>
+            <Calendar
+              className={`${text.p2} form-control`}
+              onChange={this.onEnd}
+              selected={this.state.end}
+            />
+          </div>
+          <div className="submit">
+            <button
+              className={`${button.primary} ${text.p1}`}
+              onClick={this.onSubmit}
+            >
+              Submit
+            </button>
+          </div>
+          <div className="chart">
+            <Line className="line" data={data} />
           </div>
         </div>
       </Layout>
