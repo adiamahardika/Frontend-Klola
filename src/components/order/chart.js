@@ -9,7 +9,7 @@ import Layout from "../layout/Layout";
 import "../css/order/chart.css";
 import "../css/components/form.css";
 import "react-datepicker/dist/react-datepicker.css";
-class History extends Component {
+class Chart extends Component {
   state = {
     start: new Date(),
     end: new Date(),
@@ -52,10 +52,6 @@ class History extends Component {
           lineTension: 0.1,
           backgroundColor: "rgba(75,192,192,0.4)",
           borderColor: "#4285f4",
-          // borderCapStyle: ,
-          // borderDash: [],
-          // borderDashOffset: 0.0,
-          // borderJoinStyle: "miter",
           pointBorderColor: "#4285f4",
           pointBackgroundColor: "#fff",
           pointBorderWidth: 1,
@@ -111,4 +107,4 @@ const mapStateToProps = (state) => {
     history: state.order.history,
   };
 };
-export default connect(mapStateToProps)(History);
+export default connect(mapStateToProps)(Chart);

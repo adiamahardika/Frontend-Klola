@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Layout from "../layout/Layout";
+import Layout from "../layout/layout";
 import CardProduct from "./card_product";
 import Cart from "./cart";
 import { connect } from "react-redux";

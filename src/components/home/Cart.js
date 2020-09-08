@@ -9,7 +9,7 @@ import {
 } from "../redux/actions/cart";
 import { parseToRupiah } from "../helpers/index";
 import { text, button } from "../helpers/class_name.json";
-import Checkout from "../order/Checkout";
+import Checkout from "../order/checkout";
 import empty from "../../images/empty-cart.png";
 import "../css/home/cart.css";
 import "../css/components/button.css";

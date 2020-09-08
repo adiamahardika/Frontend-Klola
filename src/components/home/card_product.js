@@ -20,7 +20,7 @@ const CardProduct = ({ product, addCart }) => {
       <div className="card-body">
         <div className={`${text.p1} product-category text-icon`}>
           <ion-icon name="fast-food" />
-          {product.category}
+          {product.category_name}
         </div>
         <div className={`${text.h2} product-name`}>{product.name}</div>
         <div className={text.p1}>{parseToRupiah(product.price)}</div>

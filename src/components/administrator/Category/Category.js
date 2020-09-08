@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getAllCategory } from "../../redux/actions/category";
 import { text, button } from "../../helpers/class_name.json"
-import Layout from "../../layout/Layout";
+import Layout from "../../layout/layout";
 import ListCategory from "./list_category";
 import EditCategory from "./edit_category";
 import DeleteCategory from "./delete_category";

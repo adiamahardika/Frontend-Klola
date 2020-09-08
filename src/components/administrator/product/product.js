@@ -4,7 +4,7 @@ import { getAllProduct } from "../../redux/actions/product";
 import { withRouter } from "react-router";
 import { button, text } from "../../helpers/class_name.json";
 import { getAllCategory } from "../../redux/actions/category";
-import Layout from "../../layout/Layout";
+import Layout from "../../layout/layout";
 import ListProduct from "./list_product";
 import InsertProduct from "./insert_product";
 import DeleteProduct from "./delete_product";

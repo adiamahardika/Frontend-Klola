@@ -8,7 +8,7 @@ import AdminProduct from "./components/administrator/product/product";
 import AdminCategory from "./components/administrator/category/category";
 import AdminUser from "./components/administrator/user/user";
 import Login from "./components/auth/Login";
-import History from "./components/order/History";
+import Chart from "./components/order/chart";
 import "./App.css";
 function App() {
   return (
@@ -32,7 +32,7 @@ function App() {
             path={routes.admin + routes.user}
             component={AdminUser}
           />
-          <Route exact path={routes.history} component={History} />
+          <Route exact path={routes.history} component={Chart} />
         </div>
       </Router>
     </Provider>

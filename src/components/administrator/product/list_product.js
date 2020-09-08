@@ -44,7 +44,7 @@ const ListProduct = ({
         <img src={product.image} alt="" className="product-image" />
       </div>
       <div className="sentences-column">{product.name}</div>
-      <div className="sentences-column">{product.category}</div>
+      <div className="sentences-column">{product.category_name}</div>
       <div>{product.quantity}</div>
       <div className="sentences-column">{parseToRupiah(product.price)}</div>
       <div>{parseDate(product.date_created)}</div>

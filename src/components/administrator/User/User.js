@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getAllUser } from "../../redux/actions/user";
 import { text, button } from "../../helpers/class_name.json";
-import Layout from "../../layout/Layout";
+import Layout from "../../layout/layout";
 import ListUser from "./list_user";
 import EditUser from "./edit_user";
 import DeleteUser from "./delete_user";

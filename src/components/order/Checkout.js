@@ -92,30 +92,6 @@ class Checkout extends Component {
           </div>
         </div>
       </>
-      //   <Modal show={this.props.show} onHide={this.props.onHide}>
-      //     <Modal.Header closeButton>
-      //       <Modal.Title>Checkout</Modal.Title>
-      //     </Modal.Header>
-      //     <Modal.Body>
-      //       <Row>
-      //         <Col>Name</Col>
-      //         <Col style={{ textAlign: "center" }}>Quantity</Col>
-      //         <Col>Price</Col>
-      //       </Row>
-      //       {carts.map((cart) => (
-      //         <Row>
-      //           <Col>{cart.name}</Col>
-      //           <Col style={{ textAlign: "center" }}>{cart.qty}</Col>
-      //           <Col>{parseToRupiah(cart.price * cart.qty)}</Col>
-      //         </Row>
-      //       ))}
-      //       <Row>Total : {parseToRupiah(total)}</Row>
-      //     </Modal.Body>
-      //     <Modal.Footer>
-      //       <Row>Cashier: {this.state.name}</Row>
-      //       <Button onClick={() => this.checkout(carts)}>Confirm</Button>
-      //     </Modal.Footer>
-      //   </Modal>
     );
   }
 }

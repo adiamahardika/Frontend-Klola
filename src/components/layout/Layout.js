@@ -1,6 +1,5 @@
 import React from "react";
-import Navbar from "./Navbar";
-import Sidebar from "./Sidebar";
+import Sidebar from "./sidebar";
 import "../css/layout/layout.css";
 const Layout = (props) => {
   const onLogout = () => {
