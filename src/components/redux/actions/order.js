@@ -54,7 +54,7 @@ export const chartOrder = (startDate, endDate) => {
   const authorization = localStorage.getItem("token");
   const userId = localStorage.getItem("user-id");
   return {
-    type: "GET_HISTORY",
+    type: "GET_CHART",
     payload: axios({
       method: "GET",
       url: `${process.env.REACT_APP_API}/order/chart?start=${startDate}&end=${endDate}`,

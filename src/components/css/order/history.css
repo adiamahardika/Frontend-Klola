@@ -1,0 +1,36 @@
+.history-wrapper {
+  padding: 16px;
+  display: grid;
+  align-items: center;
+  row-gap: 16px;
+  grid-template-rows: repeat(2, max-content);
+  grid-template-areas:
+    "title form"
+    "table table";
+}
+.history-title {
+  grid-area: title;
+}
+.find-product-wrapper.transaction-history {
+  grid-area: form;
+}
+.history-table {
+  grid-area: table;
+  display: grid;
+  grid-template-columns: repeat(2, max-content) 1fr 2fr max-content;
+  background-color: white;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15) !important;
+}
+.history-table > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  border: 1px solid #dedede;
+}
+div > .total-transaction {
+  justify-content: flex-end;
+}
+div > .left {
+  justify-content: flex-start;
+}

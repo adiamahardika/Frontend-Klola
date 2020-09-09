@@ -1,5 +1,6 @@
 const initialState = {
   history: [],
+  chart: [],
   oreder_detail: [],
 };
 
@@ -16,7 +17,7 @@ const order = (state = initialState, action) => {
     case "CHECKOUT_FULFILLED":
       return {
         ...state,
-        history: action.payload.data,
+        history: action.payload.data.result,
       };
     case "READ_ORDER_PENDING":
       return {
@@ -29,7 +30,7 @@ const order = (state = initialState, action) => {
     case "READ_ORDER_FULFILLED":
       return {
         ...state,
-        history: action.payload.data,
+        history: action.payload.data.result,
       };
     case "READ_ORDER_DETAIL_PENDING":
       return {
@@ -42,20 +43,20 @@ const order = (state = initialState, action) => {
     case "READ_ORDER_DETAIL_FULFILLED":
       return {
         ...state,
-        oreder_detail: action.payload.data,
+        oreder_detail: action.payload.data.result,
       };
-    case "GET_HISTORY_PENDING":
+    case "GET_CHART_PENDING":
       return {
         ...state,
       };
-    case "GET_HISTORY_REJECT":
+    case "GET_CHART_REJECT":
       return {
         ...state,
       };
-    case "GET_HISTORY_FULFILLED":
+    case "GET_CHART_FULFILLED":
       return {
         ...state,
-        history: action.payload.data,
+        chart: action.payload.data,
       };
     default:
       return state;

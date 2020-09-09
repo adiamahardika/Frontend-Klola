@@ -49,9 +49,24 @@ class Sidebar extends Component {
         </div>
         <div className={`${text.p1} sidebar-menu text-icon`}>
           <ion-icon name="bar-chart"></ion-icon>
-          <Link className={`${text.p1} sidebar-menu`} to={routes.history}>
-            History
-          </Link>
+          <div
+            className={`${text.p1} sidebar-menu dropdown-toggle`}
+            type="button"
+            data-toggle="collapse"
+            data-target="#collapseMenuTrasaction"
+          >
+            Transaction
+          </div>
+        </div>
+        <div className="collapse" id="collapseMenuTrasaction">
+          <ul>
+            <li type="button" className="management-list">
+              <Link to={routes.chart}>Chart</Link>
+            </li>
+            <li type="button" className="management-list">
+              <Link to={routes.history}>History</Link>
+            </li>
+          </ul>
         </div>
         <div className={`${text.p1} sidebar-menu text-icon`}>
           <ion-icon name="log-out"></ion-icon>

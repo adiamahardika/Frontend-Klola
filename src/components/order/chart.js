@@ -5,7 +5,7 @@ import { Line } from "react-chartjs-2";
 import { text, button } from "../helpers/class_name.json";
 import Calendar from "react-datepicker";
 import moment from "moment";
-import Layout from "../layout/Layout";
+import Layout from "../layout/layout";
 import "../css/order/chart.css";
 import "../css/components/form.css";
 import "react-datepicker/dist/react-datepicker.css";
@@ -34,11 +34,11 @@ class Chart extends Component {
   };
 
   render() {
-    const { history } = this.props;
+    const { chart } = this.props;
     let date = [];
     let total = [];
     let index = 0;
-    history.forEach((item) => {
+    chart.forEach((item) => {
       date[index] = item.date;
       total[index] = item.total;
       index++;
@@ -104,7 +104,7 @@ class Chart extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    history: state.order.history,
+    chart: state.order.chart,
   };
 };
 export default connect(mapStateToProps)(Chart);

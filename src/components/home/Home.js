@@ -124,7 +124,7 @@ class Home extends Component {
                   {categories.map((category, index) => (
                     <button
                       onClick={this.filterProduct}
-                      class={`${text.p1} dropdown-item`}
+                      className={`${text.p1} dropdown-item`}
                       key={index}
                       value={category.id}
                     >

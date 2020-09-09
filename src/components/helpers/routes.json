@@ -2,6 +2,7 @@
   "routes": {
     "admin": "/admin",
     "category": "/category",
+    "chart": "/chart",
     "history": "/history",
     "home": "/",
     "login": "/login",
