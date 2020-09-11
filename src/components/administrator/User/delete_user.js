@@ -2,11 +2,14 @@ import React from "react";
 import { connect } from "react-redux";
 import { deleteUser } from "../../redux/actions/user";
 import { text, button } from "../../helpers/class_name.json";
+import { routes } from "../../helpers/routes.json";
+import { withRouter } from "react-router-dom";
 const DeleteUser = (props) => {
   const { user, dispatch } = props;
   const onDeleteHandle = async (event) => {
     event.preventDefault();
     await dispatch(deleteUser(user.id));
+    await this.props.history.push(routes.admin + routes.user);
   };
 
   return (
@@ -58,4 +61,4 @@ const DeleteUser = (props) => {
     </>
   );
 };
-export default connect()(DeleteUser);
+export default withRouter(connect()(DeleteUser));

@@ -35,7 +35,7 @@ class Checkout extends Component {
     await this.props.dispatch(checkout(data));
     await this.props.dispatch(cancelCart(cart));
     await this.props.dispatch(getAllProduct());
-    this.props.history.push(routes.home);
+    await this.props.history.push(routes.home);
   }
 
   render() {

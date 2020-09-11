@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { patchUser } from "../../redux/actions/user";
 import { text, button } from "../../helpers/class_name.json";
+import { routes } from "../../helpers/routes.json";
+import { withRouter } from "react-router-dom";
 class EditUser extends Component {
   state = {
     id: "",
@@ -33,6 +35,7 @@ class EditUser extends Component {
       status: this.state.status,
     };
     await this.props.dispatch(patchUser(data, id));
+    await this.props.history.push(routes.admin + routes.user);
   };
 
   render() {
@@ -147,4 +150,4 @@ class EditUser extends Component {
     );
   }
 }
-export default connect()(EditUser);
+export default withRouter(connect()(EditUser));

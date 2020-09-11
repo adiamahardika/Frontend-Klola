@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { postUser } from "../../redux/actions/user";
 import { withRouter } from "react-router-dom";
 import { button, text } from "../../helpers/class_name.json";
+import { routes } from "../../helpers/routes.json"
 class InsertUser extends Component {
   state = {
     name: "",
@@ -20,7 +21,7 @@ class InsertUser extends Component {
   postUser = async (event) => {
     event.preventDefault();
     await this.props.dispatch(postUser(this.state));
-    await this.props.history.push("/admin/user");
+    await this.props.history.push(routes.admin + routes.user);
   };
 
   render() {
