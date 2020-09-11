@@ -63,6 +63,7 @@ class EditProduct extends Component {
     }
   };
   render() {
+    console.log(this.state)
     const { categories } = this.props;
     const SubmitButton = () => {
       if (

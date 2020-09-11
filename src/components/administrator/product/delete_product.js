@@ -1,12 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
 import { deleteProduct } from "../../redux/actions/product";
-import { text, button } from "../../helpers/class_name.json"
+import { text, button } from "../../helpers/class_name.json";
+import { routes } from "../../helpers/routes.json";
+import { withRouter } from "react-router-dom";
 const DeleteProduct = (props) => {
-  const { product, dispatch } = props;
+  const { product, dispatch, history } = props;
   const onDeleteHandle = async (event) => {
     event.preventDefault();
     await dispatch(deleteProduct(product.id));
+    await history.push(routes.admin + routes.product);
   };
   return (
     <>
@@ -57,4 +60,4 @@ const DeleteProduct = (props) => {
     </>
   );
 };
-export default connect()(DeleteProduct);
+export default withRouter(connect()(DeleteProduct));
