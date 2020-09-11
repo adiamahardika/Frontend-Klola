@@ -18,11 +18,12 @@ import "../../css/components/wrapper.css";
 import "../../css/components/image.css";
 class AdminProducts extends Component {
   state = {
-    sortBy: "",
-    orderBy: "",
+    sort_by: "",
+    order_by: "",
     name: "",
     category: "",
     page: "",
+    limit: "",
     selectProductDelete: [],
     selectProductEdit: [],
   };

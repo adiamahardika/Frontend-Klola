@@ -19,16 +19,17 @@ export const getAllProduct = () => {
 export const modifyProduct = (data) => {
   const authorization = localStorage.getItem("token");
   const userId = localStorage.getItem("user-id");
-  const sortBy = data.sortBy || "name"
-  const orderBy = data.orderBy || "ASC"
+  const sort_by = data.sort_by || "name"
+  const order_by = data.order_by || "ASC"
   const name = data.name || ""
   const category = data.category || ""
   const page = data.page || 1
+  const limit = data.limit || 100
   return {
     type: "MODIFY_PRODUCT",
     payload: axios({
       method: "GET",
-      url: `${process.env.REACT_APP_API}/product/?sortBy=${sortBy}&orderBy=${orderBy}&name=${name}&category=${category}&page=${page}`,
+      url: `${process.env.REACT_APP_API}/product/?sort_by=${sort_by}&order_by=${order_by}&name=${name}&category=${category}&page=${page}&limit${limit}`,
       headers: {
         authorization: authorization,
         "user-id": userId,

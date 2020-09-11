@@ -7,7 +7,7 @@ import { getAllProduct, modifyProduct } from "../redux/actions/product";
 import { getAllCategory } from "../redux/actions/category";
 import { addCart } from "../redux/actions/cart";
 import { withRouter } from "react-router";
-import { text } from "../helpers/class_name.json"
+import { text } from "../helpers/class_name.json";
 import "../css/home/home.css";
 import "../css/components/button.css";
 import "../css/components/form.css";
@@ -18,10 +18,11 @@ class Home extends Component {
   };
   data = {
     category: "",
-    sortBy: "",
-    orderBy: "",
+    sort_by: "",
+    order_by: "",
     name: "",
     page: "",
+    limit: "",
   };
   actSelectProduct = (products) => {
     this.setState({
@@ -46,13 +47,13 @@ class Home extends Component {
     this.propsHistoryPush();
   };
   sortProduct = (event) => {
-    const sortBy = event.target.value;
-    this.data.sortBy = sortBy;
+    const sort_by = event.target.value;
+    this.data.sort_by = sort_by;
     this.propsHistoryPush();
   };
   orderProduct = (event) => {
-    const orderBy = event.target.value;
-    this.data.orderBy = orderBy;
+    const order_by = event.target.value;
+    this.data.order_by = order_by;
     this.propsHistoryPush();
   };
   propsHistoryPush = () => {
@@ -173,14 +174,14 @@ class Home extends Component {
                   </button>
                 </div>
               </div>
-                <select
-                  className="custom-select"
-                  onChange={this.orderProduct}
-                  defaultValue={""}
-                >
-                  <option value="">ASC</option>
-                  <option value="DESC">DSC</option>
-                </select>
+              <select
+                className="custom-select"
+                onChange={this.orderProduct}
+                defaultValue={""}
+              >
+                <option value="">ASC</option>
+                <option value="DESC">DSC</option>
+              </select>
               <input
                 className={`${text.p1} form-control search`}
                 type="text"

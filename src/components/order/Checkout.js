@@ -3,10 +3,13 @@ import { connect } from "react-redux";
 import { checkout } from "../redux/actions/order";
 import { cancelCart } from "../redux/actions/cart";
 import { parseToRupiah } from "../helpers/index";
-import { text, button } from "../helpers/class_name.json"
-import "../css/order/checkout.css"
+import { text, button } from "../helpers/class_name.json";
+import { getAllProduct } from "../redux/actions/product";
+import { routes } from "../helpers/routes.json";
+import "../css/order/checkout.css";
 import "../css/components/text.css";
 import "../css/components/button.css";
+import { withRouter } from "react-router-dom";
 class Checkout extends Component {
   constructor(props) {
     super(props);
@@ -31,6 +34,8 @@ class Checkout extends Component {
     };
     await this.props.dispatch(checkout(data));
     await this.props.dispatch(cancelCart(cart));
+    await this.props.dispatch(getAllProduct());
+    this.props.history.push(routes.home);
   }
 
   render() {
@@ -57,19 +62,25 @@ class Checkout extends Component {
                 </button>
               </div>
               <div className="modal-body modal-checkout">
-                  <div className={text.p1}>No</div>
+                <div className={text.p1}>No</div>
                 <div className={text.p1}>Name</div>
                 <div className={text.p1}>Quantity</div>
                 <div className={text.p1}>Price</div>
                 {carts.map((cart, index) => (
                   <>
-                  <div className={text.p2}>{index + 1}</div>
+                    <div className={text.p2}>{index + 1}</div>
                     <div className={`${text.p2} name`}>{cart.name}</div>
-                    <div className={text.p2} style={{ textAlign: "center" }}>{cart.qty}</div>
-                    <div className={`${text.p2} price`}>{parseToRupiah(cart.price * cart.qty)}</div>
+                    <div className={text.p2} style={{ textAlign: "center" }}>
+                      {cart.qty}
+                    </div>
+                    <div className={`${text.p2} price`}>
+                      {parseToRupiah(cart.price * cart.qty)}
+                    </div>
                   </>
                 ))}
-                <div className={`${text.p1} total-checkout`}>Total : {parseToRupiah(total)}</div>
+                <div className={`${text.p1} total-checkout`}>
+                  Total : {parseToRupiah(total)}
+                </div>
               </div>
               <div className="modal-footer">
                 <button
@@ -101,4 +112,4 @@ const mapStateToProps = (state) => {
     total: state.carts.total,
   };
 };
-export default connect(mapStateToProps)(Checkout);
+export default withRouter(connect(mapStateToProps)(Checkout));
