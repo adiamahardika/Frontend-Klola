@@ -12,5 +12,5 @@
   display: grid;
   column-gap: 8px;
   grid-auto-flow: column;
-  align-content: center;
+  align-items: center;
 }

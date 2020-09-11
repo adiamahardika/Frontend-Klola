@@ -48,7 +48,7 @@ class AdminUser extends Component {
       <Layout>
         <div className="admin-wrapper">
           <div className={text.h1}>User</div>
-          <div className="find-product-wrapper">
+          <div className="form-admin-wrapper">
             <button
               type="button"
               className={`${button.primary} ${text.p3}`}

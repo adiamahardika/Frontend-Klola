@@ -35,7 +35,7 @@ const ListUser = ({ index, user, onSelectUserEdit, onSelectUserDelete }) => {
       </div>
       <div className="sentences-column">{user.name}</div>
       <div className="sentences-column">{user.email}</div>
-      <div className="sentences-column">{user.status}</div>
+      <div className="sentences-column">{user.status_name}</div>
       <div>{parseDate(user.date_created)}</div>
       <div>{parseDate(user.date_updated)}</div>
     </>
