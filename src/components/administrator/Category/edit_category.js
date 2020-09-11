@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { patchCategory } from "../../redux/actions/category";
 import { text, button } from "../../helpers/class_name.json";
+import { routes } from "../../helpers/routes.json";
+import { withRouter } from "react-router-dom";
 class EditCategory extends Component {
   state = {
     id: "",
@@ -25,6 +27,7 @@ class EditCategory extends Component {
       name: this.state.name,
     };
     await this.props.dispatch(patchCategory(data, id));
+    await this.props.history.push(routes.admin + routes.category);
   };
 
   render() {
@@ -106,4 +109,4 @@ class EditCategory extends Component {
   }
 }
 
-export default connect()(EditCategory);
+export default withRouter(connect()(EditCategory));

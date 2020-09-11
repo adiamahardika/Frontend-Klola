@@ -2,11 +2,14 @@ import React from "react";
 import { connect } from "react-redux";
 import { deleteCategory } from "../../redux/actions/category";
 import { text, button } from "../../helpers/class_name.json";
+import { routes } from "../../helpers/routes.json"
+import { withRouter } from "react-router-dom";
 const DeleteCategory = (props) => {
-  const { category, dispatch } = props;
+  const { category, dispatch, history } = props;
   const onDeleteHandle = async (event) => {
     event.preventDefault();
     await dispatch(deleteCategory(category.id));
+    await history.push(routes.admin + routes.category)
   };
 
   return (
@@ -20,7 +23,7 @@ const DeleteCategory = (props) => {
         <div className="modal-dialog modal-dialog-centered" role="document">
           <div className="modal-content">
             <div className="modal-header">
-              <div className={text.h2}>Delete Product</div>
+              <div className={text.h2}>Delete Category</div>
               <button
                 type="button"
                 className="close"
@@ -59,4 +62,4 @@ const DeleteCategory = (props) => {
   );
 };
 
-export default connect()(DeleteCategory);
+export default withRouter(connect()(DeleteCategory));

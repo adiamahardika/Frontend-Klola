@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getAllCategory } from "../../redux/actions/category";
-import { text, button } from "../../helpers/class_name.json"
+import { getAllCategory, findCategory } from "../../redux/actions/category";
+import { text, button } from "../../helpers/class_name.json";
+import { routes } from "../../helpers/routes.json";
 import Layout from "../../layout/layout";
 import ListCategory from "./list_category";
 import EditCategory from "./edit_category";
@@ -15,8 +16,11 @@ import "../../css/components/text.css";
 import "../../css/components/wrapper.css";
 class Category extends Component {
   state = {
-    selectCategoryEdit: null,
+    selectCategoryEdit: [],
     selectCategoryDelete: [],
+  };
+  data = {
+    name: "",
   };
   componentDidMount() {
     this.props.dispatch(getAllCategory());
@@ -24,7 +28,6 @@ class Category extends Component {
   onSelectCategoryEdit = (category) => {
     this.setState({
       selectCategoryEdit: category,
-      showEdit: true,
     });
   };
   onSelectCategoryDelete = (category) => {
@@ -32,7 +35,36 @@ class Category extends Component {
       selectCategoryDelete: category,
     });
   };
-
+  searchCategory = (event) => {
+    const name = event.target.value;
+    this.data.name = name;
+    this.propsHistoryPush();
+  };
+  propsHistoryPush = () => {
+    const data = this.data;
+    let result = [];
+    Object.keys(data).map((key) => {
+      if (data[key] !== "") {
+        return result.push(key + "=" + data[key]);
+      } else {
+        return "";
+      }
+    });
+    if (result.length !== 0) {
+      this.props.history.push(
+        `${routes.admin + routes.category}/?${result.map((value) => {
+          if (result.indexOf(value) === result.length - 1) {
+            return value;
+          } else {
+            return value + "&";
+          }
+        })}`
+      );
+    } else {
+      this.props.history.push(routes.admin + routes.category);
+    }
+    this.props.dispatch(findCategory(data));
+  };
   render() {
     const { categories } = this.props;
     const listCategories =
@@ -64,6 +96,7 @@ class Category extends Component {
               type="text"
               placeholder="Search Category"
               aria-label="Search"
+              onChange={this.searchCategory}
             />
           </div>
           <div className="admin-table category">

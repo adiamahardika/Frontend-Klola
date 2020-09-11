@@ -3,6 +3,7 @@ import { withRouter } from "react-router";
 import { connect } from "react-redux";
 import { text, button } from "../../helpers/class_name.json";
 import { postCategory } from "../../redux/actions/category";
+import { routes } from "../../helpers/routes.json";
 class InsertCategory extends Component {
   state = {
     name: "",
@@ -17,7 +18,7 @@ class InsertCategory extends Component {
   postCategory = async (event) => {
     event.preventDefault();
     await this.props.dispatch(postCategory(this.state));
-    this.props.history.push("/admin/category");
+    this.props.history.push(routes.admin + routes.category);
   };
 
   render() {
