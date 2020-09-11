@@ -30,7 +30,7 @@ const CardProduct = ({ product, addCart }) => {
           className={`${button.primary} btn ${text.p1}`}
           onClick={selectProduct}
         >
-          Add
+          Add to Cart
         </button>
       </div>
     </div>

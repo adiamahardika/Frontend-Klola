@@ -1,12 +1,15 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import axios from "axios";
-import login from "../../images/login.png";
-import "./login.css";
+import "../css/auth/login.css";
+import "../css/components/button.css";
+import "../css/components/form.css";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import { text, button } from "../helpers/class_name.json";
 require("dotenv").config();
 class Login extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       email: "",
       password: "",
@@ -14,9 +17,9 @@ class Login extends Component {
   }
 
   componentDidMount() {
-    if (localStorage.getItem("token")) {
-      this.props.history.push("/");
-    }
+    // if (localStorage.getItem("token")) {
+    //   this.props.history.push("/");
+    // }
   }
 
   onChange = (event) => {
@@ -29,7 +32,6 @@ class Login extends Component {
     axios
       .post(`${process.env.REACT_APP_API}/user/login`, this.state)
       .then((response) => {
-        console.log(response.data);
         localStorage.setItem("token", response.data.result.token);
         localStorage.setItem("user-id", response.data.result.id);
         localStorage.setItem("status", response.data.result.status);
@@ -44,61 +46,39 @@ class Login extends Component {
 
   render() {
     return (
-      <Fragment>
-        <img className="backgroundLogin" src={login} alt="background-login" />
-
-        <div className="cardLogin">
-          <div className="card-body">
-            {/* <img src={logo} className="logo d-inline-block align-top" alt="logo"/> */}
-            <div className="row justify-content-md-center">
-              <div className="col">
-                <form onSubmit={this.onSubmit}>
-                  <div className="form-group">
-                    <label>Email</label>
-                    <input
-                      type="email"
-                      className="form-control"
-                      placeholder="ex: youremail@mail.com"
-                      name="email"
-                      onChange={this.onChange}
-                      required
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Password</label>
-                    <input
-                      type="password"
-                      className="form-control"
-                      placeholder="Enter password"
-                      name="password"
-                      onChange={this.onChange}
-                      required
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="btn"
-                    align="right"
-                    style={{
-                      borderRadius: 25,
-                      fontSize: "16px",
-                      color: "white",
-                      width: "100%",
-                      backgroundColor: "#E91E63",
-                      fontFamily: "Poppins, sans-serif",
-                      fontWeight: 500,
-                    }}
-                  >
-                    LOGIN
-                  </button>
-                </form>
-              </div>
+      <div className="login-wrapper">
+        <div className="card-login">
+          <form onSubmit={this.onSubmit}>
+            <div className="form-group">
+              <label className={text.p1}>Email</label>
+              <input
+                type="email"
+                className={`form-control ${text.p2}`}
+                placeholder="ex: youremail@mail.com"
+                name="email"
+                onChange={this.onChange}
+                required
+              />
             </div>
-          </div>
+            <div className="form-group">
+              <label className={text.p1}>Password</label>
+              <input
+                type="password"
+                className={`form-control ${text.p2}`}
+                placeholder="Enter password"
+                name="password"
+                onChange={this.onChange}
+                required
+              />
+            </div>
+            <button type="submit" className={`${button.primary} ${text.p1}`}>
+              LOGIN
+            </button>
+          </form>
         </div>
-      </Fragment>
+      </div>
     );
   }
 }
 
-export default Login;
+export default withRouter(connect()(Login));

@@ -7,7 +7,7 @@ import store from "./components/redux/store";
 import AdminProduct from "./components/administrator/product/product";
 import AdminCategory from "./components/administrator/category/category";
 import AdminUser from "./components/administrator/user/user";
-import Login from "./components/auth/Login";
+import Login from "./components/auth/login";
 import Chart from "./components/order/chart";
 import History from "./components/order/history";
 import "./App.css";

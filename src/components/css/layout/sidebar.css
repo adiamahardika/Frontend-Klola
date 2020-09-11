@@ -23,12 +23,19 @@
 .sidebar-menu {
   border: none;
 }
+.sidebar-menu a {
+  color: white;
+  display: block;
+}
+.sidebar-menu a:hover {
+  text-decoration: none;
+  color: white;
+}
 .sidebar ul {
   list-style: none;
   text-decoration: none;
   display: grid;
   row-gap: 2px;
-  justify-content: stretch;
   padding: 8px;
   border-radius: 8px;
   background-color: white;
@@ -36,7 +43,6 @@
 .management-list {
   border: none;
   padding: 4px;
-  font-size: 14px;
 }
 .management-list:hover {
   background-color: #4285f4;

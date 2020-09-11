@@ -7,8 +7,13 @@ import "../css/layout/sidebar.css";
 import "../css/components/text.css";
 import klola from "../../images/klola.svg";
 class Sidebar extends Component {
+  onLogout = () => {
+    localStorage.removeItem("user-id");
+    localStorage.removeItem("token");
+    localStorage.removeItem("isAuth");
+    this.props.history.push(routes.login);
+  };
   render() {
-    const { onLogout } = this.props;
     return (
       <div className="sidebar">
         <div className={`${text.h2} sidebar-menu`}>
@@ -17,9 +22,9 @@ class Sidebar extends Component {
         <div className={`${text.h2} sidebar-menu`}>
           Hai, {localStorage.getItem("name")}
         </div>
-        <div className={`${text.p1} sidebar-menu text-icon`}>
+        <div className={`${text.p1} sidebar-menu text-icon`} type="button">
           <ion-icon name="home"></ion-icon>
-          <Link className={`${text.p1} sidebar-menu`} to={routes.home}>
+          <Link className={`${text.p1}`} to={routes.home}>
             Home
           </Link>
         </div>
@@ -71,9 +76,9 @@ class Sidebar extends Component {
         <div className={`${text.p1} sidebar-menu text-icon`}>
           <ion-icon name="log-out"></ion-icon>
           <Link
-            className={`${text.p1} sidebar-menu`}
+            className={`${text.p1}`}
             to="/login"
-            onClick={onLogout.bind(this)}
+            onClick={this.onLogout.bind(this)}
           >
             Logout
           </Link>
