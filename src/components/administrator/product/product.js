@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getAllProduct } from "../../redux/actions/product";
+import { getAllProduct, modifyProduct } from "../../redux/actions/product";
 import { withRouter } from "react-router";
 import { button, text } from "../../helpers/class_name.json";
+import { routes } from "../../helpers/routes.json";
 import { getAllCategory } from "../../redux/actions/category";
 import Layout from "../../layout/layout";
 import ListProduct from "./list_product";
@@ -18,16 +19,17 @@ import "../../css/components/wrapper.css";
 import "../../css/components/image.css";
 class AdminProducts extends Component {
   state = {
+    selectProductDelete: [],
+    selectProductEdit: [],
+  };
+  data = {
     sort_by: "",
     order_by: "",
     name: "",
     category: "",
     page: "",
     limit: "",
-    selectProductDelete: [],
-    selectProductEdit: [],
   };
-
   componentDidMount() {
     // if (!localStorage.getItem("isAuth")) {
     //   this.props.history.push("/login");
@@ -38,13 +40,6 @@ class AdminProducts extends Component {
     this.props.dispatch(getAllProduct());
     this.props.dispatch(getAllCategory());
   }
-
-  sortCategory = (event) => {
-    event.preventDefault();
-    this.setState({
-      category: event.target.value,
-    });
-  };
 
   onSelectProductDelete = (product) => {
     this.setState({
@@ -60,6 +55,51 @@ class AdminProducts extends Component {
     });
   };
 
+  searchProduct = (event) => {
+    const name = event.target.value;
+    this.data.name = name;
+    this.propsHistoryPush();
+  };
+  filterProduct = (event) => {
+    const category = event.target.value;
+    this.data.category = category;
+    this.propsHistoryPush();
+  };
+  sortProduct = (event) => {
+    const sort_by = event.target.value;
+    this.data.sort_by = sort_by;
+    this.propsHistoryPush();
+  };
+  orderProduct = (event) => {
+    const order_by = event.target.value;
+    this.data.order_by = order_by;
+    this.propsHistoryPush();
+  };
+  propsHistoryPush = () => {
+    const data = this.data;
+    let result = [];
+    Object.keys(data).map((key) => {
+      if (data[key] !== "") {
+        return result.push(key + "=" + data[key]);
+      } else {
+        return "";
+      }
+    });
+    if (result.length !== 0) {
+      this.props.history.push(
+        `${routes.admin + routes.product}/?${result.map((value) => {
+          if (result.indexOf(value) === result.length - 1) {
+            return value;
+          } else {
+            return value + "&";
+          }
+        })}`
+      );
+    } else {
+      this.props.history.push(routes.admin + routes.product);
+    }
+    this.props.dispatch(modifyProduct(data));
+  };
   render() {
     const { products, categories } = this.props;
     const showProduct = products.map((item, index) => {
@@ -131,6 +171,27 @@ class AdminProducts extends Component {
                 >
                   None
                 </button>
+                <button
+                  onClick={this.sortProduct}
+                  className={`${text.p1} dropdown-item`}
+                  value="name"
+                >
+                  Name
+                </button>
+                <button
+                  onClick={this.sortProduct}
+                  className={`${text.p1} dropdown-item`}
+                  value="price"
+                >
+                  Price
+                </button>
+                <button
+                  onClick={this.sortProduct}
+                  className={`${text.p1} dropdown-item`}
+                  value="quantity"
+                >
+                  Stock
+                </button>
               </div>
             </div>
             <select
@@ -146,6 +207,7 @@ class AdminProducts extends Component {
               type="text"
               placeholder="Search Category"
               aria-label="Search"
+              onChange={this.searchProduct}
             />
           </div>
           <div className="admin-table product">
