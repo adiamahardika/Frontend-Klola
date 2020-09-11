@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getAllProduct, modifyProduct } from "../../redux/actions/product";
+import { getAllProduct, findProduct } from "../../redux/actions/product";
 import { withRouter } from "react-router";
 import { button, text } from "../../helpers/class_name.json";
 import { routes } from "../../helpers/routes.json";
@@ -98,7 +98,7 @@ class AdminProducts extends Component {
     } else {
       this.props.history.push(routes.admin + routes.product);
     }
-    this.props.dispatch(modifyProduct(data));
+    this.props.dispatch(findProduct(data));
   };
   render() {
     const { products, categories } = this.props;

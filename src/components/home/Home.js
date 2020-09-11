@@ -3,7 +3,7 @@ import Layout from "../layout/layout";
 import CardProduct from "./card_product";
 import Cart from "./cart";
 import { connect } from "react-redux";
-import { getAllProduct, modifyProduct } from "../redux/actions/product";
+import { getAllProduct, findProduct } from "../redux/actions/product";
 import { getAllCategory } from "../redux/actions/category";
 import { addCart } from "../redux/actions/cart";
 import { withRouter } from "react-router";
@@ -79,7 +79,7 @@ class Home extends Component {
     } else {
       this.props.history.push(`/`);
     }
-    this.props.dispatch(modifyProduct(data));
+    this.props.dispatch(findProduct(data));
   };
   // componentDidMount(){
   //     if(!localStorage.getItem('isAuth')){

@@ -16,7 +16,7 @@ export const getAllProduct = () => {
     }),
   };
 };
-export const modifyProduct = (data) => {
+export const findProduct = (data) => {
   const authorization = localStorage.getItem("token");
   const userId = localStorage.getItem("user-id");
   const sort_by = data.sort_by || "name"
