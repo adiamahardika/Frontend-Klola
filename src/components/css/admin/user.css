@@ -1,7 +1,6 @@
 .admin-table.user{
   display: grid;
   grid-template-columns: repeat(2, max-content) repeat(3, 1fr) repeat(2, max-content);
-  background-color: white;
   box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15) !important;
   grid-area: table;
 }

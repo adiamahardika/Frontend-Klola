@@ -211,15 +211,15 @@ class AdminProducts extends Component {
             />
           </div>
           <div className="admin-table product">
-            <div className={text.p1}>No</div>
-            <div className={text.p1}>Manage</div>
-            <div className={text.p1}>Image</div>
-            <div className={text.p1}>Name</div>
-            <div className={text.p1}>Category</div>
-            <div className={text.p1}>Quantity</div>
-            <div className={text.p1}>Price</div>
-            <div className={text.p1}>Date Created</div>
-            <div className={text.p1}>Date Updated</div>
+            <div className={`${text.p1} table-header number-column`}>No</div>
+            <div className={`${text.p1} table-header`}>Manage</div>
+            <div className={`${text.p1} table-header`}>Image</div>
+            <div className={`${text.p1} table-header`}>Name</div>
+            <div className={`${text.p1} table-header`}>Category</div>
+            <div className={`${text.p1} table-header`}>Quantity</div>
+            <div className={`${text.p1} table-header`}>Price</div>
+            <div className={`${text.p1} table-header`}>Date Created</div>
+            <div className={`${text.p1} table-header`}>Date Updated</div>
             {showProduct}
           </div>
         </div>

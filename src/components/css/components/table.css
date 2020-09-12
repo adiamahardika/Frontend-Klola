@@ -1,5 +1,6 @@
 .admin-table{
   overflow: auto;
+  border-radius: 8px;
 }
 .admin-table .sentences-column {
   display: flex;
@@ -7,13 +8,23 @@
 }
 .admin-table > div {
   padding: 8px;
-  border: 1px solid #dedede;
+  border-bottom: 1px solid #dedede;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: white;
+}
+.number-column {
+  position: sticky;
+  left: 0;
 }
 .manage-column {
   display: grid;
   grid-auto-flow: column;
   column-gap: 8px;
+}
+div > .table-header {
+  background-color: #f4437e;
+  border-color: white;
+  color: white;
 }

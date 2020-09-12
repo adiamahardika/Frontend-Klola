@@ -52,11 +52,11 @@ class History extends Component {
             />
           </div>
           <div className="history-table">
-            <div className={`${text.p1}`}>No</div>
-            <div className={`${text.p1}`}>Transaction Id</div>
-            <div className={`${text.p1}`}>User</div>
-            <div className={`${text.p1}`}>Total Transaction</div>
-            <div className={`${text.p1}`}>Date Created</div>
+            <div className={`${text.p1} table-header`}>No</div>
+            <div className={`${text.p1} table-header`}>Transaction Id</div>
+            <div className={`${text.p1} table-header`}>User</div>
+            <div className={`${text.p1} table-header`}>Total Transaction</div>
+            <div className={`${text.p1} table-header`}>Date Created</div>
             {history.map((item, index) => {
               return (
                 <>

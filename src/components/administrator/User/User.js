@@ -6,7 +6,7 @@ import Layout from "../../layout/layout";
 import ListUser from "./list_user";
 import EditUser from "./edit_user";
 import DeleteUser from "./delete_user";
-import InsertUser from "./insert_user"
+import InsertUser from "./insert_user";
 import "../../css/admin/user.css";
 import "../../css/components/wrapper.css";
 import "../../css/components/button.css";
@@ -112,17 +112,17 @@ class AdminUser extends Component {
             />
           </div>
           <div className="admin-table user">
-            <div className={text.p1}>No</div>
-            <div className={text.p1}>Manage</div>
-            <div className={text.p1}>Name</div>
-            <div className={text.p1}>Email</div>
-            <div className={text.p1}>Status</div>
-            <div className={text.p1}>Date Created</div>
-            <div className={text.p1}>Date Updated</div>
+            <div className={`${text.p1} table-header number-column`}>No</div>
+            <div className={`${text.p1} table-header`}>Manage</div>
+            <div className={`${text.p1} table-header`}>Name</div>
+            <div className={`${text.p1} table-header`}>Email</div>
+            <div className={`${text.p1} table-header`}>Status</div>
+            <div className={`${text.p1} table-header`}>Date Created</div>
+            <div className={`${text.p1} table-header`}>Date Updated</div>
             {listUser}
           </div>
         </div>
-        <InsertUser/>
+        <InsertUser />
         <EditUser user={this.state.selectUserEdit} />
         <DeleteUser user={this.state.selectUserDelete} />
       </Layout>

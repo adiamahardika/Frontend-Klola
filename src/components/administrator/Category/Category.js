@@ -100,11 +100,11 @@ class Category extends Component {
             />
           </div>
           <div className="admin-table category">
-            <div className={text.p1}>No</div>
-            <div className={text.p1}>Manage</div>
-            <div className={text.p1}>Category Name</div>
-            <div className={text.p1}>Date Created</div>
-            <div className={text.p1}>Date Updated</div>
+            <div className={`${text.p1} table-header number-column`}>No</div>
+            <div className={`${text.p1} table-header`}>Manage</div>
+            <div className={`${text.p1} table-header`}>Category Name</div>
+            <div className={`${text.p1} table-header`}>Date Created</div>
+            <div className={`${text.p1} table-header`}>Date Updated</div>
             {listCategories}
           </div>
         </div>

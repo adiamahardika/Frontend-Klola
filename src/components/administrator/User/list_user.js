@@ -12,7 +12,7 @@ const ListUser = ({ index, user, onSelectUserEdit, onSelectUserDelete }) => {
   };
   return (
     <>
-      <div>{index + 1}</div>
+      <div className="number-column">{index + 1}</div>
       <div className="manage-column">
         <button
           type="button"
