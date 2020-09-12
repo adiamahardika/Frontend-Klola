@@ -51,7 +51,7 @@ class History extends Component {
               onChange={this.searchProduct}
             />
           </div>
-          <div className="history-table">
+          <div className="table history">
             <div className={`${text.p1} table-header`}>No</div>
             <div className={`${text.p1} table-header`}>Transaction Id</div>
             <div className={`${text.p1} table-header`}>User</div>

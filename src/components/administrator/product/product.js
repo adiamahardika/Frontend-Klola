@@ -210,7 +210,7 @@ class AdminProducts extends Component {
               onChange={this.searchProduct}
             />
           </div>
-          <div className="admin-table product">
+          <div className="table product">
             <div className={`${text.p1} table-header number-column`}>No</div>
             <div className={`${text.p1} table-header`}>Manage</div>
             <div className={`${text.p1} table-header`}>Image</div>

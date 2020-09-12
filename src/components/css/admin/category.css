@@ -1,4 +1,4 @@
-.admin-table.category {
+.table.category {
   display: grid;
   grid-area: table;
   grid-template-columns: repeat(2, max-content) 1fr repeat(2, max-content);

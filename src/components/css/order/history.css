@@ -14,7 +14,7 @@
 .find-product-wrapper.transaction-history {
   grid-area: form;
 }
-.history-table {
+.table.history {
   grid-area: table;
   display: grid;
   grid-template-columns: repeat(2, max-content) 1fr 2fr max-content;

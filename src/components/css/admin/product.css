@@ -1,4 +1,4 @@
-.admin-table.product {
+.table.product {
   display: grid;
   grid-area: table;
   grid-template-columns: repeat(9, max-content);

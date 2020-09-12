@@ -99,7 +99,7 @@ class Category extends Component {
               onChange={this.searchCategory}
             />
           </div>
-          <div className="admin-table category">
+          <div className="table category">
             <div className={`${text.p1} table-header number-column`}>No</div>
             <div className={`${text.p1} table-header`}>Manage</div>
             <div className={`${text.p1} table-header`}>Category Name</div>

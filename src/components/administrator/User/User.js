@@ -111,7 +111,7 @@ class AdminUser extends Component {
               onChange={this.searchProduct}
             />
           </div>
-          <div className="admin-table user">
+          <div className="table user">
             <div className={`${text.p1} table-header number-column`}>No</div>
             <div className={`${text.p1} table-header`}>Manage</div>
             <div className={`${text.p1} table-header`}>Name</div>

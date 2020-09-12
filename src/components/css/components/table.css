@@ -1,12 +1,12 @@
-.admin-table{
+.table{
   overflow: auto;
   border-radius: 8px;
 }
-.admin-table .sentences-column {
+.table .sentences-column {
   display: flex;
   justify-content: flex-start;
 }
-.admin-table > div {
+.table > div {
   padding: 8px;
   border-bottom: 1px solid #dedede;
   display: flex;
