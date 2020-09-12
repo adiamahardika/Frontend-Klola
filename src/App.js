@@ -11,6 +11,7 @@ import Login from "./components/auth/login";
 import Chart from "./components/order/chart";
 import History from "./components/order/history";
 import "./App.css";
+
 function App() {
   return (
     <Provider store={store}>
