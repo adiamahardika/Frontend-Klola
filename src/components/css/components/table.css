@@ -2,10 +2,6 @@
   overflow: auto;
   border-radius: 8px;
 }
-.table .sentences-column {
-  display: flex;
-  justify-content: flex-start;
-}
 .table > div {
   padding: 8px;
   border-bottom: 1px solid #dedede;
@@ -27,4 +23,6 @@ div > .table-header {
   background-color: #f4437e;
   border-color: white;
   color: white;
+  position: sticky;
+  top: 0;
 }
