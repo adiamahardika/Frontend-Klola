@@ -48,9 +48,8 @@ class Login extends Component {
     return (
       <div className="login-wrapper">
         <div className="card-login">
-          <form onSubmit={this.onSubmit}>
             <div className="form-group">
-              <label className={text.p1}>Email</label>
+              <div className={text.p1}>Email</div>
               <input
                 type="email"
                 className={`form-control ${text.p2}`}
@@ -61,7 +60,7 @@ class Login extends Component {
               />
             </div>
             <div className="form-group">
-              <label className={text.p1}>Password</label>
+              <div className={text.p1}>Password</div>
               <input
                 type="password"
                 className={`form-control ${text.p2}`}
@@ -71,10 +70,9 @@ class Login extends Component {
                 required
               />
             </div>
-            <button type="submit" className={`${button.primary} ${text.p1}`}>
-              LOGIN
+            <button className={`${button.primary} ${text.p1} login`} onClick={this.onSubmit}>
+              Login
             </button>
-          </form>
         </div>
       </div>
     );
