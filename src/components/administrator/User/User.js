@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getAllUser } from "../../redux/actions/user";
+import { getAllUser, findUser } from "../../redux/actions/user";
 import { text, button } from "../../helpers/class_name.json";
+import { routes } from "../../helpers/routes.json";
 import Layout from "../../layout/layout";
 import ListUser from "./list_user";
 import EditUser from "./edit_user";
@@ -18,6 +19,12 @@ class AdminUser extends Component {
     selectUserEdit: [],
     selectUserDelete: [],
   };
+  data = {
+    name: "",
+    status: "",
+    sort_by: "",
+    order_by: "",
+  };
   componentDidMount() {
     this.props.dispatch(getAllUser());
   }
@@ -30,6 +37,52 @@ class AdminUser extends Component {
     this.setState({
       selectUserDelete: user,
     });
+  };
+
+  searchUser = (event) => {
+    const name = event.target.value;
+    this.data.name = name;
+    this.propsHistoryPush();
+  };
+  filterUser = (event) => {
+    const status = event.target.value;
+    this.data.status = status;
+    this.propsHistoryPush();
+  };
+  sortUser = (event) => {
+    const sort_by = event.target.value;
+    this.data.sort_by = sort_by;
+    this.propsHistoryPush();
+  };
+  orderUser = (event) => {
+    const order_by = event.target.value;
+    this.data.order_by = order_by;
+    this.propsHistoryPush();
+  };
+  propsHistoryPush = () => {
+    const data = this.data;
+    let result = [];
+    Object.keys(data).map((key) => {
+      if (data[key] !== "") {
+        return result.push(key + "=" + data[key]);
+      } else {
+        return "";
+      }
+    });
+    if (result.length !== 0) {
+      this.props.history.push(
+        `${routes.admin + routes.user}/?${result.map((value) => {
+          if (result.indexOf(value) === result.length - 1) {
+            return value;
+          } else {
+            return value + "&";
+          }
+        })}`
+      );
+    } else {
+      this.props.history.push(routes.admin + routes.user);
+    }
+    this.props.dispatch(findUser(data));
   };
   render() {
     const { user } = this.props;
@@ -68,11 +121,25 @@ class AdminUser extends Component {
               </button>
               <div className="dropdown-menu">
                 <button
-                  onClick={this.filterProduct}
+                  onClick={this.filterUser}
                   value=""
                   className={`${text.p1} dropdown-item`}
                 >
                   All
+                </button>
+                <button
+                  onClick={this.filterUser}
+                  value="1"
+                  className={`${text.p1} dropdown-item`}
+                >
+                  Admin
+                </button>
+                <button
+                  onClick={this.filterUser}
+                  value="2"
+                  className={`${text.p1} dropdown-item`}
+                >
+                  Cashier
                 </button>
               </div>
             </div>
@@ -87,17 +154,31 @@ class AdminUser extends Component {
               </button>
               <div className="dropdown-menu">
                 <button
-                  onClick={this.sortProduct}
+                  onClick={this.sortUser}
                   className={`${text.p1} dropdown-item`}
                   value=""
                 >
                   None
                 </button>
+                <button
+                  onClick={this.sortUser}
+                  className={`${text.p1} dropdown-item`}
+                  value="name"
+                >
+                  Name
+                </button>
+                <button
+                  onClick={this.sortUser}
+                  className={`${text.p1} dropdown-item`}
+                  value="email"
+                >
+                  Email
+                </button>
               </div>
             </div>
             <select
               className="custom-select"
-              onChange={this.orderProduct}
+              onChange={this.orderUser}
               defaultValue={""}
             >
               <option value="">ASC</option>
@@ -108,7 +189,7 @@ class AdminUser extends Component {
               type="text"
               placeholder="Search Product"
               aria-label="Search"
-              onChange={this.searchProduct}
+              onChange={this.searchUser}
             />
           </div>
           <div className="table user">

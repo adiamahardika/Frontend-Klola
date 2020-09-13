@@ -12,6 +12,7 @@
   color: white;
   padding: 4px;
   display: block;
+  border: none;
 }
 .sidebar-menu:hover {
   text-decoration: none;
@@ -20,9 +21,6 @@
   border-radius: 4px;
 }
 /* Management */
-.sidebar-menu {
-  border: none;
-}
 .sidebar-menu a {
   color: white;
   display: block;

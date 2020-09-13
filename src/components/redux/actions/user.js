@@ -9,9 +9,23 @@ export const getAllUser = () => {
       method: "GET",
       url: `${process.env.REACT_APP_API}/user`,
       headers: {
-        "authorization": authorization,
-        "user-id": userId
-    }
+        authorization: authorization,
+        "user-id": userId,
+      },
+    }),
+  };
+};
+
+export const findUser = (data) => {
+  const name = data.name || "";
+  const status = parseInt(data.status) || "";
+  const sort_by = data.sort_by || "name";
+  const order_by = data.order_by || "ASC";
+  return {
+    type: "GET_USER",
+    payload: axios({
+      method: "GET",
+      url: `${process.env.REACT_APP_API}/user/?name=${name}&status=${status}&sort_by=${sort_by}&order_by=${order_by}`,
     }),
   };
 };
@@ -25,9 +39,9 @@ export const deleteUser = (id) => {
       method: "DELETE",
       url: `${process.env.REACT_APP_API}/user/${id}`,
       headers: {
-        "authorization": authorization,
-        "user-id": userId
-    }
+        authorization: authorization,
+        "user-id": userId,
+      },
     }),
   };
 };
@@ -42,9 +56,9 @@ export const postUser = (data) => {
       url: `${process.env.REACT_APP_API}/user/register`,
       data: data,
       headers: {
-        "authorization": authorization,
-        "user-id": userId
-    }
+        authorization: authorization,
+        "user-id": userId,
+      },
     }),
   };
 };
@@ -59,9 +73,9 @@ export const patchUser = (data, id) => {
       url: `${process.env.REACT_APP_API}/user/${id}`,
       data: data,
       headers: {
-        "authorization": authorization,
-        "user-id": userId
-    }
+        authorization: authorization,
+        "user-id": userId,
+      },
     }),
   };
 };
